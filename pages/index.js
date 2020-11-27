@@ -7,7 +7,7 @@ import {default as NextLink} from 'next/link'
 import Prismic from 'prismic-javascript'
 import {RichText} from 'prismic-reactjs'
 import {client, linkResolver, hrefResolver} from '../prismic-configuration'
-import Header from '../components/Header'
+import Layout from './../components/Layout'
 
 export default function Home(props) {
   console.log(props)
@@ -22,55 +22,56 @@ export default function Home(props) {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <div
-        sx={{
-          backgroundColor: 'muted',
-          variant: 'styles',
-          p: 2,
-          minHeight: '100vh',
-          height: '100%',
-        }}>
-        <Header />
-        {props.articles.results.map((article, index) => {
-          return (
-            <div key={index}>
-              <h2>
-                <NextLink
-                  href={hrefResolver(article)}
-                  as={linkResolver(article)}>
-                  <a>{RichText.asText(article.data.title)}</a>
-                </NextLink>
-              </h2>
-              <p>{RichText.asText(article.data.excerpt)}</p>
-              {article.tags.map((tag, index) => {
-                return (
-                  <div key={index}>
-                    Tags:
-                    <NextLink
-                      href={hrefResolver({type: 'tag', uid: tag})}
-                      as={linkResolver({type: 'tag', uid: tag})}>
-                      <a style={{margin: '0 0.5rem'}}>{tag}</a>
-                    </NextLink>
-                  </div>
-                )
-              })}
-              <br />
-              {article.data.categories.map(({slug}, index) => {
-                return (
-                  <div key={index}>
-                    Categories:
-                    <NextLink
-                      href={hrefResolver({type: 'category', uid: slug})}
-                      as={linkResolver({type: 'category', uid: slug})}>
-                      <a style={{margin: '0 0.5rem'}}>{slug}</a>
-                    </NextLink>
-                  </div>
-                )
-              })}
-            </div>
-          )
-        })}
-      </div>
+      <Layout>
+        <div
+          sx={{
+            backgroundColor: 'muted',
+            variant: 'styles',
+            p: 2,
+            minHeight: '100vh',
+            height: '100%',
+          }}>
+          {props.articles.results.map((article, index) => {
+            return (
+              <div key={index}>
+                <h2>
+                  <NextLink
+                    href={hrefResolver(article)}
+                    as={linkResolver(article)}>
+                    <a>{RichText.asText(article.data.title)}</a>
+                  </NextLink>
+                </h2>
+                <p>{RichText.asText(article.data.excerpt)}</p>
+                {article.tags.map((tag, index) => {
+                  return (
+                    <div key={index}>
+                      Tags:
+                      <NextLink
+                        href={hrefResolver({type: 'tag', uid: tag})}
+                        as={linkResolver({type: 'tag', uid: tag})}>
+                        <a style={{margin: '0 0.5rem'}}>{tag}</a>
+                      </NextLink>
+                    </div>
+                  )
+                })}
+                <br />
+                {article.data.categories.map(({slug}, index) => {
+                  return (
+                    <div key={index}>
+                      Categories:
+                      <NextLink
+                        href={hrefResolver({type: 'category', uid: slug})}
+                        as={linkResolver({type: 'category', uid: slug})}>
+                        <a style={{margin: '0 0.5rem'}}>{slug}</a>
+                      </NextLink>
+                    </div>
+                  )
+                })}
+              </div>
+            )
+          })}
+        </div>
+      </Layout>
     </Fragment>
   )
 }

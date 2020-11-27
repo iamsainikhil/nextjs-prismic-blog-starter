@@ -4,25 +4,24 @@
 // @import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
 
 @font-face {
-    font-family: 'CeraRoundPro';
-    src: url('../fonts/CeraRoundPro-Regular.woff') format('woff');
-  }
-  
-  @font-face {
-    font-family: 'CeraRoundPro-Light';
-    font-weight: 300;
-    src: url('../fonts/CeraRoundPro-Light.woff') format('woff');
-  }
-  
-  @font-face {
-    font-family: 'CeraRoundPro-Medium';
-    font-weight: 500;
-    src: url('../fonts/CeraRoundPro-Medium.woff') format('woff');
-  }
-  
-  @font-face {
-    font-family: 'CeraRoundPro-Bold';
-    font-weight: 700;
-    src: url('../fonts/CeraRoundPro-Bold.woff') format('woff');
-  }
-  
+  font-family: 'CeraRoundPro';
+  src: url('../public/fonts/CeraRoundPro-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'CeraRoundPro-Light';
+  font-weight: 300;
+  src: url('../public/fonts/CeraRoundPro-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'CeraRoundPro-Medium';
+  font-weight: 500;
+  src: url('../public/fonts/CeraRoundPro-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'CeraRoundPro-Bold';
+  font-weight: 700;
+  src: url('../public/fonts/CeraRoundPro-Bold.woff') format('woff');
+}
