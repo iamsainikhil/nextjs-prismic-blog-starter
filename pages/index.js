@@ -8,6 +8,7 @@ import Prismic from 'prismic-javascript'
 import {RichText} from 'prismic-reactjs'
 import {client, linkResolver, hrefResolver} from '../prismic-configuration'
 import Layout from './../components/Layout'
+import Listing from '../components/Listing'
 
 export default function Home(props) {
   console.log(props)
@@ -22,11 +23,8 @@ export default function Home(props) {
       </Head>
 
       <Layout>
-        <div
-          sx={{
-            variant: 'styles',
-          }}>
-          {props.articles.results.map((article, index) => {
+        <Listing articles={props.articles.results} />
+        {/* {props.articles.results.map((article, index) => {
             return (
               <div key={index}>
                 <h2>
@@ -64,8 +62,7 @@ export default function Home(props) {
                 })}
               </div>
             )
-          })}
-        </div>
+          })} */}
       </Layout>
     </Fragment>
   )

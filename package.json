@@ -10,6 +10,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "dayjs": "^1.9.6",
     "next": "10.0.3",
     "next-google-fonts": "^1.2.1",
     "prismic-javascript": "^3.0.2",
