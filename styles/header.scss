@@ -1,0 +1,80 @@
+@import 'partials';
+
+.headroom {
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.headroom--unfixed {
+  position: relative;
+  transform: translateY(0);
+}
+.headroom--scrolled {
+  transition: transform 200ms ease-in-out;
+}
+.headroom--unpinned {
+  position: fixed;
+  transform: translateY(-100%);
+}
+.headroom--unpinned .header {
+  display: none;
+}
+.headroom--pinned {
+  position: fixed;
+  transform: translateY(0%);
+  height: 50px;
+
+  .header {
+    padding: 0 1rem;
+    height: 3.5rem;
+
+    .header-content {
+      @extend %container;
+      h1 {
+        font-size: 2rem;
+        padding-left: 1rem;
+      }
+
+      h2 {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.header {
+  height: 4.75rem;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1.25rem;
+
+  .header-content {
+    @extend %flex;
+    justify-content: space-between;
+    margin: 0 auto;
+
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+
+  .header-links {
+    @extend %flex;
+    justify-content: flex-end;
+
+    p {
+      margin: 0 1rem;
+      padding: 0.25rem 0.15rem;
+
+      .theme-icon {
+        font-size: 1.25rem;
+        margin-top: 0.4rem;
+        vertical-align: middle;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

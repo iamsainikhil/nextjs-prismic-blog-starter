@@ -1,0 +1,23 @@
+%container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  @media (min-width: 768px) and (max-width: 1279px) {
+    max-width: 100%;
+  }
+
+  @media (min-width: 1280px) and (max-width: 1559px) {
+    max-width: 90%;
+  }
+
+  @media (min-width: 1560px) {
+    max-width: 1280px;
+  }
+}
+
+%flex {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
