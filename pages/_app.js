@@ -1,5 +1,7 @@
 import {ThemeProvider} from 'theme-ui'
 import theme from '../utils/theme'
+import '../styles/header.scss'
+import '../styles/layout.scss'
 
 function MyApp({Component, pageProps}) {
   return (

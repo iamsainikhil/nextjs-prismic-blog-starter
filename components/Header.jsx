@@ -5,7 +5,6 @@ import Headroom from 'react-headroom'
 import {Styled, useThemeUI} from 'theme-ui'
 // import { GoSearch } from "react-icons/go"
 import {FiSun, FiMoon} from 'react-icons/fi'
-import '../styles/header.scss'
 
 const Header = ({siteTitle = ''}) => {
   const {theme, colorMode, setColorMode} = useThemeUI()

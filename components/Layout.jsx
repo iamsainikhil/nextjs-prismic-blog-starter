@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Header from '../components/Header'
-import '../styles/layout.scss'
 import {IoIosArrowDropupCircle} from 'react-icons/io'
 
 const Layout = ({children}) => {
