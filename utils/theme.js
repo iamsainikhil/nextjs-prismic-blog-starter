@@ -64,6 +64,7 @@ export default {
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
   fontWeights: {
+    light: 300,
     body: 400,
     medium: 500,
     heading: 700,
@@ -91,6 +92,11 @@ export default {
       fontFamily: 'body',
       fontWeight: 'body',
       lineHeight: 'body',
+    },
+    light: {
+      fontFamily: 'light',
+      fontWeight: 'light',
+      lineHeight: 'light',
     },
   },
   styles: {

@@ -2,7 +2,7 @@
 /** @jsx jsx */
 import React, {Fragment} from 'react'
 import {jsx} from 'theme-ui'
-import Head from 'next/head'
+import Head from '../components/Head'
 import {default as NextLink} from 'next/link'
 import Prismic from 'prismic-javascript'
 import {RichText} from 'prismic-reactjs'
@@ -17,8 +17,7 @@ export default function Home(props) {
 
   return (
     <Fragment>
-      <Head>
-        <title>NextJS Prismic Blog Starter</title>
+      <Head title='Blog | NextJS Prismic Blog Starter'>
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
