@@ -25,11 +25,7 @@ export default function Home(props) {
       <Layout>
         <div
           sx={{
-            backgroundColor: 'muted',
             variant: 'styles',
-            p: 2,
-            minHeight: '100vh',
-            height: '100%',
           }}>
           {props.articles.results.map((article, index) => {
             return (

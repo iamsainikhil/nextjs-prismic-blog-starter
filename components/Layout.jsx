@@ -1,6 +1,6 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import Header from '../components/Header'
+import Footer from './Footer'
 import {IoIosArrowDropupCircle} from 'react-icons/io'
 
 const Layout = ({children}) => {
@@ -8,7 +8,7 @@ const Layout = ({children}) => {
     <div className='content-wrapper'>
       <Header />
       <main className='main'>{children}</main>
-      {/* <Footer /> */}
+      <Footer />
       <IoIosArrowDropupCircle
         className='scroll-top-icon'
         onClick={() => {

@@ -1,4 +1,3 @@
-import React from 'react'
 import {default as NextLink} from 'next/link'
 import PropTypes from 'prop-types'
 import Headroom from 'react-headroom'
