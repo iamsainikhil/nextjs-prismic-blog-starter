@@ -13,5 +13,4 @@ const Head = ({children, title}) => (
     </NextHead>
   </>
 )
-
 export default Head
