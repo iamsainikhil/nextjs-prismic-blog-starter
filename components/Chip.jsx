@@ -2,9 +2,9 @@
 /** @jsx jsx */
 import {jsx} from 'theme-ui'
 import PropTypes from 'prop-types'
-import trackGAEvent from './../utils/trackGAEvent'
 import {default as NextLink} from 'next/link'
 import {hrefResolver, linkResolver} from './../prismic-configuration'
+import trackGAEvent from './../utils/trackGAEvent'
 
 /**
  * @param {String} slug (ID)

@@ -4,6 +4,7 @@ import Headroom from 'react-headroom'
 import {Styled, useThemeUI} from 'theme-ui'
 // import { GoSearch } from "react-icons/go"
 import {FiSun, FiMoon} from 'react-icons/fi'
+import trackGAEvent from './../utils/trackGAEvent'
 
 const Header = ({siteTitle = ''}) => {
   const {theme, colorMode, setColorMode} = useThemeUI()
@@ -20,7 +21,10 @@ const Header = ({siteTitle = ''}) => {
                     textDecoration: 'none',
                     fontFamily: 'Damion',
                     letterSpacing: '0.15rem',
-                  }}>
+                  }}
+                  onClick={() =>
+                    trackGAEvent('logo', `clicked on site logo`, 'link click')
+                  }>
                   Blog
                 </Styled.a>
               </NextLink>
@@ -51,6 +55,11 @@ const Header = ({siteTitle = ''}) => {
                     className='theme-icon'
                     onClick={() => {
                       setColorMode('dark')
+                      trackGAEvent(
+                        'toggle theme',
+                        `enabled dark theme`,
+                        'icon click'
+                      )
                     }}
                   />
                 </Styled.a>
@@ -62,6 +71,11 @@ const Header = ({siteTitle = ''}) => {
                     className='theme-icon'
                     onClick={() => {
                       setColorMode('light')
+                      trackGAEvent(
+                        'toggle theme',
+                        `enabled light theme`,
+                        'icon click'
+                      )
                     }}
                   />
                 </Styled.a>
