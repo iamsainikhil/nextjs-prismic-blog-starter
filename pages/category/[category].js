@@ -1,8 +1,8 @@
-import {client, linkResolver, hrefResolver} from '../../prismic-configuration'
+import {client} from '../../prismic-configuration'
 import Prismic from 'prismic-javascript'
 import Layout from './../../components/Layout'
-import Listing from './../../components/Listing'
 import Caption from '../../components/Caption'
+import Listing from './../../components/Listing'
 
 export default function Post({articles, category}) {
   return (
