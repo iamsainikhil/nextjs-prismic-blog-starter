@@ -10,7 +10,7 @@ export default function Home(props) {
 
   return (
     <Layout>
-      <Caption page='home' />
+      <Caption type='articles' />
       <Listing articles={props.articles.results} />
     </Layout>
   )

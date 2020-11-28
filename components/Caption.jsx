@@ -3,7 +3,7 @@
 import React from 'react'
 import {jsx, Styled} from 'theme-ui'
 
-const Caption = ({page, name, type}) => {
+const Caption = ({name, type}) => {
   return (
     <div style={{textAlign: 'center'}}>
       <Styled.p
@@ -12,7 +12,7 @@ const Caption = ({page, name, type}) => {
           fontSize: [2, 3, 4],
           textAlign: 'center',
         }}>
-        {page === 'home' ? (
+        {type === 'articles' ? (
           <Styled.em>
             Dive into many interesting articles related to Web Development,
             Software Tools, Tips&nbsp;&&nbsp;Tricks,&nbsp;etc.
