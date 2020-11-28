@@ -29,7 +29,7 @@ const Chip = ({name, slug, type, page = 'article'}) => {
             cursor: 'pointer',
             '&:hover': {
               color: 'accent',
-              backgroundColor: 'shade1',
+              backgroundColor: 'muted',
             },
           }}
           onClick={() =>

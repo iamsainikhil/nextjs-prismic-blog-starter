@@ -3,6 +3,7 @@ import theme from '../utils/theme'
 import '../styles/header.scss'
 import '../styles/layout.scss'
 import '../styles/footer.scss'
+import '../styles/component.scss'
 
 function MyApp({Component, pageProps}) {
   return (

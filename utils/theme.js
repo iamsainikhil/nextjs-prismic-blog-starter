@@ -32,7 +32,7 @@ export default {
     modes: {
       dark: {
         text: '#fff',
-        background: '#181818',
+        background: '#131313',
         primary: '#d2d2d2',
         secondary: '#b2b2b2',
         muted: '#202020',
@@ -42,7 +42,7 @@ export default {
         nextjs: '#b2b2b2',
         code: '#1b1b1b',
         shade1: '#0a0a0a',
-        shade2: '#262626',
+        shade2: '#101010',
         info: '#93C5FD',
         success: '#A7F3D0',
         warning: '#FDE68A',
@@ -146,6 +146,7 @@ export default {
       '&:hover': {
         color: 'secondary',
         textDecoration: 'none',
+        cursor: 'pointer',
       },
     },
     blockquote: {

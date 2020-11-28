@@ -17,8 +17,8 @@ import trackGAEvent from '../utils/trackGAEvent'
  * @param {String} text
  */
 const truncateText = (text) => {
-  if (text.length > 100) {
-    return text.slice(0, 99).concat('...')
+  if (text.length > 75) {
+    return text.slice(0, 75).concat('...')
   }
   return text
 }
@@ -95,13 +95,14 @@ const Listing = ({articles}) => {
                 },
               }}>
               <NextLink href={hrefResolver(article)} as={linkResolver(article)}>
-                <span
+                <a
                   sx={{
                     color: 'inherit',
                     textDecoration: 'none',
                     ':hover,:focus': {
                       color: 'secondary',
                       textDecoration: 'underline',
+                      cursor: 'pointer',
                     },
                   }}
                   onClick={() =>
@@ -112,7 +113,7 @@ const Listing = ({articles}) => {
                     )
                   }>
                   {RichText.asText(article.data.title)}
-                </span>
+                </a>
               </NextLink>
             </h2>
             <p
@@ -177,11 +178,11 @@ const Listing = ({articles}) => {
                 py: 1,
               }}>
               <em
-                title={`Article posted on ${formatDate(article.data.created)}`}
+                title={`Article posted on ${formatDate(article.data.modified)}`}
                 aria-label={`Article posted on ${formatDate(
-                  article.data.created
+                  article.data.modified
                 )}`}>
-                {formatDate(article.data.created)}
+                {formatDate(article.data.modified)}
               </em>
               <span sx={{mx: 2, fontSize: '10px'}}>|</span>
               <em
