@@ -1,8 +1,6 @@
 import {client} from '../../prismic-configuration'
 import Prismic from 'prismic-javascript'
-import Layout from './../../components/Layout'
-import Caption from '../../components/Caption'
-import Listing from './../../components/Listing'
+import {Layout, Caption, Listing} from './../../components'
 
 export default function Category({articles, category}) {
   return (

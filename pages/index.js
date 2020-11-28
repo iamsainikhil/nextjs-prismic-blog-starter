@@ -1,8 +1,6 @@
 import Prismic from 'prismic-javascript'
 import {client} from '../prismic-configuration'
-import Layout from './../components/Layout'
-import Listing from '../components/Listing'
-import Caption from '../components/Caption'
+import {Layout, Caption, Listing} from './../components'
 
 export default function Home(props) {
   // console.log(props)

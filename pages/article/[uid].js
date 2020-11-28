@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react'
+import {useState} from 'react'
 import {client} from '../../prismic-configuration'
 import {RichText} from 'prismic-reactjs'
 import Prismic from 'prismic-javascript'
