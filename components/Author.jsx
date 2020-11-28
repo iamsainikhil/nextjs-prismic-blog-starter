@@ -3,6 +3,8 @@
 import {jsx} from 'theme-ui'
 import PropTypes from 'prop-types'
 import Icon from './Icon'
+import {Image} from 'next/image'
+import {RichText} from 'prismic-reactjs'
 
 const flexbox = {
   display: 'flex',
@@ -30,12 +32,15 @@ const Author = ({author}) => {
         borderColor: 'shade2',
         borderRadius: '1rem',
       }}>
-      {/* <Img
-        fluid={author.avatar.fluid}
+      <Image
+        src={author.avatar.url}
         alt={author.avatar.alt}
         title={author.avatar.alt}
-        sx={{ height: '100px', borderRadius: '50%' }}
-      /> */}
+        layout='responsive'
+        width={author.avatar.dimensions.width}
+        height={author.avatar.dimensions.height}
+        className='author-avatar'
+      />
       <div>
         <h3
           sx={{
@@ -44,7 +49,7 @@ const Author = ({author}) => {
           }}>
           {author.name}
         </h3>
-        <p dangerouslySetInnerHTML={{__html: author.bio.html}}></p>
+        <p dangerouslySetInnerHTML={{__html: RichText.asHtml(author.bio)}}></p>
         <div sx={{...flexbox, mt: -1}}>
           {author.social_links.map((platform, index) => {
             return (

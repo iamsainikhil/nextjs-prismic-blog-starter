@@ -10,8 +10,10 @@ export default function Article({article}) {
 export async function getStaticProps({params}) {
   const {uid} = params
   const {data} = await client.getByUID('article', uid)
+  const authorId = await data?.author?.id
+  const {data: authorData} = await client.getByID(authorId)
   return {
-    props: {article: data},
+    props: {article: data, authorData},
   }
 }
 
@@ -20,11 +22,13 @@ export async function getStaticPaths() {
     Prismic.Predicates.at('document.type', 'article')
   )
 
-  const paths = results.map((article) => ({
-    params: {
-      uid: article.uid,
-    },
-  }))
+  const paths = results.map((article) => {
+    return {
+      params: {
+        uid: article.uid,
+      },
+    }
+  })
   return {
     paths,
     fallback: false,
