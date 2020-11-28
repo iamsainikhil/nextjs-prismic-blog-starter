@@ -3,27 +3,15 @@ import {client} from '../../prismic-configuration'
 import {RichText} from 'prismic-reactjs'
 import Prismic from 'prismic-javascript'
 
-export default function Post({data}) {
-  return (
-    <Fragment>
-      <article>
-        <header>
-          <h1>{RichText.asText(data.title)}</h1>
-        </header>
-        <main>
-          <p>{RichText.asText(data.excerpt)}</p>
-        </main>
-        <footer>Created: {data.created}</footer>
-      </article>
-    </Fragment>
-  )
+export default function Article({article}) {
+  return <></>
 }
 
 export async function getStaticProps({params}) {
   const {uid} = params
   const {data} = await client.getByUID('article', uid)
   return {
-    props: {data},
+    props: {article: data},
   }
 }
 

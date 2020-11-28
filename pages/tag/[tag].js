@@ -4,7 +4,7 @@ import Layout from './../../components/Layout'
 import Caption from './../../components/Caption'
 import Listing from './../../components/Listing'
 
-export default function Post({articles, tag}) {
+export default function Tag({articles, tag}) {
   return (
     <Layout>
       <Caption name={tag} type='tag' />

@@ -4,7 +4,7 @@ import Layout from './../../components/Layout'
 import Caption from '../../components/Caption'
 import Listing from './../../components/Listing'
 
-export default function Post({articles, category}) {
+export default function Category({articles, category}) {
   return (
     <Layout>
       <Caption name={category} type='category' />
