@@ -1,36 +1,13 @@
-import React, {Fragment} from 'react'
-import {default as NextLink} from 'next/link'
 import {client, linkResolver, hrefResolver} from '../../prismic-configuration'
-import {RichText} from 'prismic-reactjs'
 import Prismic from 'prismic-javascript'
+import Layout from './../../components/Layout'
+import Listing from './../../components/Listing'
 
 export default function Post({articles}) {
-  console.log(articles)
   return (
-    <Fragment>
-      {articles.map((article, index) => {
-        return (
-          <div key={index}>
-            <h2>
-              <NextLink href={hrefResolver(article)} as={linkResolver(article)}>
-                <a>{RichText.asText(article.data.title)}</a>
-              </NextLink>
-            </h2>
-            <p>{RichText.asText(article.data.excerpt)}</p>
-            {article.tags.map((tag, index) => {
-              return (
-                <NextLink
-                  href={hrefResolver({type: 'tag', uid: tag})}
-                  as={linkResolver({type: 'tag', uid: tag})}
-                  key={index}>
-                  <a style={{margin: '0 0.5rem'}}>{tag}</a>
-                </NextLink>
-              )
-            })}
-          </div>
-        )
-      })}
-    </Fragment>
+    <Layout>
+      <Listing articles={articles} />
+    </Layout>
   )
 }
 

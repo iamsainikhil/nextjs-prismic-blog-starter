@@ -2,6 +2,7 @@ import Prismic from 'prismic-javascript'
 import {client} from '../prismic-configuration'
 import Layout from './../components/Layout'
 import Listing from '../components/Listing'
+import Caption from '../components/Caption'
 
 export default function Home(props) {
   // console.log(props)
@@ -9,6 +10,7 @@ export default function Home(props) {
 
   return (
     <Layout>
+      <Caption page='home' />
       <Listing articles={props.articles.results} />
     </Layout>
   )
