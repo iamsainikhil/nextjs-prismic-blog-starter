@@ -7,8 +7,6 @@ import siteUrl from '../utils/siteUrl'
 import routeURL from './../utils/routeURL'
 
 const Layout = ({title, pathUrl, page, description, image, children}) => {
-  const metaDescription =
-    description || 'A blog starter template using NextJS and Prismic CMS'
   const URL = siteUrl(pathUrl || routeURL())
   const siteImage = image || siteUrl('/site_image.png')
   return (
@@ -17,7 +15,7 @@ const Layout = ({title, pathUrl, page, description, image, children}) => {
         pathUrl={URL}
         page={page}
         title={title}
-        description={metaDescription}
+        description={description}
         image={siteImage}></Head>
       <div className='content-wrapper'>
         <Header />

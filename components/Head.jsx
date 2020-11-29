@@ -12,6 +12,8 @@ const Head = ({
   const twitterHandle = '@iamsainikhil12'
   const siteName = 'NextJS Prismic Blog Starter'
   const pageTitle = `${title} | ${page} | ${siteName}`
+  const metaDescription =
+    description || 'A blog starter template using NextJS and Prismic CMS'
   return (
     <>
       <GoogleFonts href='https://fonts.googleapis.com/css2?family=Damion&family=Fira+Code&family=Lato:ital,wght@0,400;0,700;1,300&display=swap' />
@@ -19,7 +21,7 @@ const Head = ({
         <meta charSet='UTF-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <meta httpEquiv='x-ua-compatible' content='ie=edge' />
-        <meta name='description' content={description} />
+        <meta name='description' content={metaDescription} />
         <meta
           name='keywords'
           content='blog,nextjs,prismic,theme UI,prismjs,react,scss,blog-starter'
@@ -33,7 +35,11 @@ const Head = ({
         <meta property='og:image' content={image} key='ogimage' />
         <meta property='og:site_name' content={siteName} key='ogsitename' />
         <meta property='og:title' content={pageTitle} key='ogtitle' />
-        <meta property='og:description' content={description} key='ogdesc' />
+        <meta
+          property='og:description'
+          content={metaDescription}
+          key='ogdesc'
+        />
         {/* favicons */}
         <link
           rel='apple-touch-icon'
