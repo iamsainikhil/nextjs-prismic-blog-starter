@@ -32,6 +32,38 @@ body {
   font-feature-settings: 'kern', 'liga', 'clig', 'calt';
 }
 
+/* Track */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+@media only screen and (min-width: 1280px) {
+  ::-webkit-scrollbar {
+    /* hide x-axis scrollbar track */
+    height: 0;
+  }
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgb(76, 76, 76);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(76, 76, 76, 0.7);
+}
+
 a {
   -webkit-text-decoration-skip: objects;
 
