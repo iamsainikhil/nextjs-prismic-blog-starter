@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://nextjs-prismic-blog-starter.vercel.app/">
-    <img alt="Gatsby" src="https://github.com/iamsainikhil/nextjs-prismic-blog-starter/raw/master/README_images/gatsby_prismic.png" width="300" />
+    <img alt="NextJS" src="https://github.com/iamsainikhil/nextjs-prismic-blog-starter/raw/master/README_images/nextjs_prismic.png" width="300" />
   </a>
 </p>
 <h1 align="center">
