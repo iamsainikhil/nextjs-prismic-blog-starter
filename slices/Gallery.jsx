@@ -4,9 +4,10 @@ import {Fragment, useState} from 'react'
 import {jsx, useThemeUI} from 'theme-ui'
 import Carousel, {Modal, ModalGateway} from 'react-images'
 import PropTypes from 'prop-types'
-import {Image} from 'next/image'
+import Image from 'next/image'
 
 const Gallery = ({data: {items}}) => {
+  console.log(items)
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const {theme} = useThemeUI()
   const toggleModal = () => {
@@ -83,14 +84,16 @@ const Gallery = ({data: {items}}) => {
           overflow: 'hidden',
         }}
         onClick={toggleModal}>
-        <Image
-          src={items[0].image.url}
-          alt={items[0].image.alt}
-          title={items[0].image.alt}
-          layout='responsive'
-          width={items[0].image.dimensions.width}
-          height={items[0].image.dimensions.height}
-        />
+        {items && (
+          <Image
+            src={items[0].image.url}
+            alt={items[0].image.alt}
+            title={items[0].image.alt}
+            layout='responsive'
+            width={items[0].image.dimensions.width}
+            height={items[0].image.dimensions.height}
+          />
+        )}
         <p
           style={{
             position: 'absolute',
@@ -111,6 +114,7 @@ const Gallery = ({data: {items}}) => {
             padding: '0.5rem',
             margin: '0 auto 0 auto',
             cursor: 'pointer',
+            zIndex: 10,
           }}
           onClick={toggleModal}>
           View Gallery
@@ -118,16 +122,6 @@ const Gallery = ({data: {items}}) => {
       </div>
     </Fragment>
   )
-}
-
-Gallery.defaultProps = {
-  data: {
-    items: {
-      alt: '',
-      fluid: null,
-      url: '',
-    },
-  },
 }
 
 Gallery.propTypes = {
