@@ -1,0 +1,22 @@
+{
+  "name": "NextJS Prismic Blog Starter",
+  "short_name": "Blog",
+  "description": "A blog starter template using NextJS and Prismic CMS",
+  "start_url": "/",
+  "theme_color": "#181818",
+  "background_color": "#333",
+  "display": "standalone",
+  "orientation": "potrait",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
