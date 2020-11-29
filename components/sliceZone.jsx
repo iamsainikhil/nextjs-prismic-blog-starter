@@ -2,7 +2,6 @@ import PropTypes from 'prop-types'
 import {
   Quote,
   Content,
-  RawContent,
   Code,
   Embed,
   Gallery,
@@ -16,12 +15,10 @@ const SliceZone = ({slices}) => {
     if (!slice) return null
     switch (slice.slice_type) {
       case 'content':
-        if (slice.primary.type === 'Rich Text') {
-          return <Content key={index} data={slice} />
-        } else if (slice.primary.type === 'Raw Text') {
-          return <RawContent key={index} data={slice} />
-        } else {
+        if (slice.primary.type === 'Quote') {
           return <Quote key={index} data={slice} />
+        } else {
+          return <Content key={index} data={slice} />
         }
       case 'code':
         return <Code key={index} data={slice} />

@@ -30,6 +30,7 @@ const htmlSerializer = function (type, element, content, children, key) {
       return React.createElement('h6', propsWithUniqueKey(props, key), children)
 
     case Elements.paragraph: // Paragraph
+      console.log(children)
       return React.createElement('p', propsWithUniqueKey(props, key), children)
 
     case Elements.preformatted: // Preformatted
@@ -107,11 +108,11 @@ const htmlSerializer = function (type, element, content, children, key) {
         embedHtml
       )
 
-    case Elements.hyperlink: // Image
+    case Elements.hyperlink:
       const targetAttr = element.data.target
         ? {target: element.data.target}
         : {}
-      const relAttr = element.data.target ? {rel: 'noopener'} : {}
+      const relAttr = element.data.target ? {rel: 'noreferrer noopener'} : {}
       props = Object.assign(
         {
           href: element.data.url || linkResolver(element.data),
