@@ -92,11 +92,9 @@ Therefore the starter has following features:
 
 - **`Slices`**(Optional):
 
-  - **Content**: This slice has 3 types (Rich Text, Raw Text, and Quote) based on which the `content` is rendered in the UI.
+  - **Content**: This slice has 2 types (Rich Text and Quote) based on which the `content` is rendered in the UI.
 
     - **Text** (Rich Text Section) **→** Rich WYSIWYG editor content which is consumed in the UI as the HTML. Support for `inline code` which appear in the HTML with a class `codespan`.
-
-    > Note: enclose any content inside `code` tag like `<code>inline code content</code>` to apply styling of inline code.
 
     - **Quote** (Blockquote Section) → Select this type to have any blockquote content in the article
 
