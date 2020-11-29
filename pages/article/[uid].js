@@ -21,7 +21,6 @@ import Snakke from 'react-snakke'
 import {Banner} from '../../slices'
 
 export default function Article({uid, tags, article, author, articles}) {
-  console.log(article, articles, author)
   const router = useRouter()
   const [showComments, setShowComments] = useState(false)
   const toggleComments = () => {
@@ -139,7 +138,7 @@ export default function Article({uid, tags, article, author, articles}) {
         </p>
 
         {/* Disqus comments */}
-        {/* {showComments ? (
+        {showComments ? (
           <div sx={{mt: 4}}>
             <DisqusComments
               slug={uid}
@@ -147,7 +146,7 @@ export default function Article({uid, tags, article, author, articles}) {
               pathname={router.asPath}
             />
           </div>
-        ) : null} */}
+        ) : null}
       </Layout>
     </Fragment>
   )
@@ -156,7 +155,9 @@ export default function Article({uid, tags, article, author, articles}) {
 export async function getStaticProps({params}) {
   const {uid} = params
   const {tags, data: article} = await client.getByUID('article', uid)
+  // get authorID
   const authorId = await article?.author?.id
+  // fetch author data based on authorId
   const {data: author} = await client.getByID(authorId)
   const {results: articles} = await client.query(
     Prismic.Predicates.at('document.type', 'article')

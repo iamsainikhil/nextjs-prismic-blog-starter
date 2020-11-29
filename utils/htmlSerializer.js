@@ -30,7 +30,6 @@ const htmlSerializer = function (type, element, content, children, key) {
       return React.createElement('h6', propsWithUniqueKey(props, key), children)
 
     case Elements.paragraph: // Paragraph
-      console.log(children)
       return React.createElement('p', propsWithUniqueKey(props, key), children)
 
     case Elements.preformatted: // Preformatted

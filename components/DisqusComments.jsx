@@ -1,33 +1,21 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import {Fragment} from 'react'
 import {jsx} from 'theme-ui'
 import PropTypes from 'prop-types'
-// import { Disqus, CommentCount } from 'gatsby-plugin-disqus'
+import {DiscussionEmbed} from 'disqus-react'
 
 const DisqusComments = ({slug, title, pathname}) => {
-  // const data = useStaticQuery(graphql`
-  //   query SiteUrlQuery {
-  //     site {
-  //       siteMetadata {
-  //         siteUrl
-  //       }
-  //     }
-  //   }
-  // `)
-
+  const disqusShortname = process.env.NEXT_PUBLIC_DISQUS_NAME
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
   let disqusConfig = {
-    // url: `${data.site.siteMetadata.siteUrl + pathname}`,
+    url: `https://${siteUrl}${pathname}`,
     identifier: slug,
     title: title,
   }
   return (
-    <Fragment>
-      {/* enable the below commentCount component if you want to show count of comments  */}
-      {/* <CommentCount config={disqusConfig} placeholder={"..."} /> */}
-      {/* Post Contents */}
-      <Disqus config={disqusConfig} sx={{variant: 'styles'}} />
-    </Fragment>
+    <div sx={{variant: 'styles'}}>
+      <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
+    </div>
   )
 }
 

@@ -13,22 +13,23 @@ const flexbox = {
 }
 
 const Share = ({articleURL, articleName}) => {
+  const siteUrl = `https://${process.env.NEXT_PUBLIC_SITE_URL}${articleURL}`
   const sharePlatforms = [
     {
       name: 'Facebook',
-      url: `https://www.facebook.com/sharer/sharer.php?u=${articleURL}`,
+      url: `https://www.facebook.com/sharer/sharer.php?u=${siteUrl}`,
     },
     {
       name: 'Twitter',
-      url: `https://twitter.com/intent/tweet?text=${articleName}&url=${articleURL}`,
+      url: `https://twitter.com/intent/tweet?text=${articleName}&url=${siteUrl}`,
     },
     {
       name: 'LinkedIn',
-      url: `http://www.linkedin.com/shareArticle?url=${articleURL}`,
+      url: `http://www.linkedin.com/shareArticle?url=${siteUrl}`,
     },
     {
       name: 'WhatsApp',
-      url: `https://wa.me/?text=${articleName} ${articleURL}`,
+      url: `https://wa.me/?text=${articleName} ${siteUrl}`,
     },
   ]
 

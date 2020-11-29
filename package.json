@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "dayjs": "^1.9.6",
+    "disqus-react": "^1.0.10",
     "next": "10.0.3",
     "next-google-fonts": "^1.2.1",
     "prism-react-renderer": "^1.1.1",

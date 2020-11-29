@@ -3,9 +3,6 @@ import {client} from '../prismic-configuration'
 import {Layout, Caption, Listing} from './../components'
 
 export default function Home(props) {
-  // console.log(props)
-  console.log(props.articles.results)
-
   return (
     <Layout>
       <Caption type='articles' />
