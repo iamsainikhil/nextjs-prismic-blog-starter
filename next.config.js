@@ -8,6 +8,7 @@ module.exports = withPWA({
     register: true,
     scope: '/',
     sw: 'service-worker.js',
+    dest: 'public',
   },
   // To enable image optimization for image hosted on external website
   // mention the external website domain below
