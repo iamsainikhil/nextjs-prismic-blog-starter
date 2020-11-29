@@ -9,13 +9,13 @@
 
 <p align="center">
 <a href="https://www.npmjs.com/package/nextjs-prismic-blog-starter" target="_blank" rel="noreferrer noopener">
-<img alt="npm" src="https://img.shields.io/npm/v/nextjs-prismic-blog-starter?style=for-the-badge">
+<img alt="npm" src="https://img.shields.io/npm/v/nextjs-prismic-blog-starter?style=flat-square">
 </a>
 <a href="https://www.npmjs.com/package/nextjs-prismic-blog-starter" target="_blank" rel="noreferrer noopener" style="margin: 0 0.25rem;">
-<img alt="npm downloads" src="https://img.shields.io/npm/dt/nextjs-prismic-blog-starter?style=for-the-badge">
+<img alt="npm downloads" src="https://img.shields.io/npm/dt/nextjs-prismic-blog-starter?style=flat-square">
 </a>
-<a href="https://github.com/iamsainikhil/nextjs-prismic-blog-starter/raw/master/README_images/LICENSE" target="_blank" rel="noreferrer noopener">
-<img alt="GitHub" src="https://img.shields.io/github/license/iamsainikhil/nextjs-prismic-blog-starter?style=for-the-badge">
+<a href="https://github.com/iamsainikhil/nextjs-prismic-blog-starter/blob/master/LICENSE" target="_blank" rel="noreferrer noopener">
+<img alt="GitHub" src="https://img.shields.io/github/license/iamsainikhil/nextjs-prismic-blog-starter?style=flat-square">
 </a>
 </p>
 
