@@ -5,7 +5,6 @@ import {jsx, Styled} from 'theme-ui'
 import {client} from '../../prismic-configuration'
 import {RichText} from 'prismic-reactjs'
 import Prismic from 'prismic-javascript'
-import {useRouter} from 'next/router'
 import {
   Layout,
   SliceZone,
@@ -16,12 +15,13 @@ import {
   RelatedArticles,
 } from '../../components'
 import {FiClock} from 'react-icons/fi'
-import formatDate from '../../utils/formatDate'
 import Snakke from 'react-snakke'
 import {Banner} from '../../slices'
+import routeURL from '../../utils/routeURL'
+import formatDate from '../../utils/formatDate'
 
 export default function Article({uid, tags, article, author, articles}) {
-  const router = useRouter()
+  const URL = routeURL()
   const [showComments, setShowComments] = useState(false)
   const toggleComments = () => {
     setShowComments(!showComments)
@@ -36,7 +36,12 @@ export default function Article({uid, tags, article, author, articles}) {
         zIndex='10'
         shadow={false}
       />
-      <Layout title={RichText.asText(article.title)}>
+      <Layout
+        page='Article'
+        title={RichText.asText(article.title)}
+        description={RichText.asText(article.excerpt)}
+        image={article.article_image.url}
+        pathUrl={URL}>
         <Styled.h1 sx={{textAlign: 'center', mb: 3}}>
           {RichText.asText(article.title)}
         </Styled.h1>
@@ -98,10 +103,7 @@ export default function Article({uid, tags, article, author, articles}) {
         </div>
 
         {/* Share */}
-        <Share
-          articleURL={router.asPath}
-          articleName={RichText.asText(article.title)}
-        />
+        <Share articleURL={URL} articleName={RichText.asText(article.title)} />
 
         {author && <Author author={author} />}
 
@@ -143,7 +145,7 @@ export default function Article({uid, tags, article, author, articles}) {
             <DisqusComments
               slug={uid}
               title={RichText.asText(article.title)}
-              pathname={router.asPath}
+              pathname={URL}
             />
           </div>
         ) : null}

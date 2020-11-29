@@ -3,11 +3,22 @@ import Head from '../components/Head'
 import Header from '../components/Header'
 import Footer from './Footer'
 import {IoIosArrowDropupCircle} from 'react-icons/io'
+import siteUrl from '../utils/siteUrl'
+import routeURL from './../utils/routeURL'
 
-const Layout = ({title, children}) => {
+const Layout = ({title, pathUrl, page, description, image, children}) => {
+  const metaDescription =
+    description || 'A blog starter template using NextJS and Prismic CMS'
+  const URL = siteUrl(pathUrl || routeURL())
+  const siteImage = image || siteUrl('/site_image.png')
   return (
     <>
-      <Head title={title}></Head>
+      <Head
+        pathUrl={URL}
+        page={page}
+        title={title}
+        description={metaDescription}
+        image={siteImage}></Head>
       <div className='content-wrapper'>
         <Header />
         <main className='main'>{children}</main>

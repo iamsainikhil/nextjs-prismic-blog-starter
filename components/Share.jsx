@@ -4,6 +4,7 @@ import {jsx, Styled} from 'theme-ui'
 import PropTypes from 'prop-types'
 import Icon from './Icon'
 import {FiShare2} from 'react-icons/fi'
+import siteUrl from '../utils/siteUrl'
 
 const flexbox = {
   display: 'flex',
@@ -13,23 +14,23 @@ const flexbox = {
 }
 
 const Share = ({articleURL, articleName}) => {
-  const siteUrl = `https://${process.env.NEXT_PUBLIC_SITE_URL}${articleURL}`
+  const URL = siteUrl(articleURL)
   const sharePlatforms = [
     {
       name: 'Facebook',
-      url: `https://www.facebook.com/sharer/sharer.php?u=${siteUrl}`,
+      url: `https://www.facebook.com/sharer/sharer.php?u=${URL}`,
     },
     {
       name: 'Twitter',
-      url: `https://twitter.com/intent/tweet?text=${articleName}&url=${siteUrl}`,
+      url: `https://twitter.com/intent/tweet?text=${articleName}&url=${URL}`,
     },
     {
       name: 'LinkedIn',
-      url: `http://www.linkedin.com/shareArticle?url=${siteUrl}`,
+      url: `http://www.linkedin.com/shareArticle?url=${URL}`,
     },
     {
       name: 'WhatsApp',
-      url: `https://wa.me/?text=${articleName} ${siteUrl}`,
+      url: `https://wa.me/?text=${articleName} ${URL}`,
     },
   ]
 

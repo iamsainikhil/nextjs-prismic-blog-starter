@@ -3,12 +3,12 @@
 import {jsx} from 'theme-ui'
 import PropTypes from 'prop-types'
 import {DiscussionEmbed} from 'disqus-react'
+import siteUrl from '../utils/siteUrl'
 
 const DisqusComments = ({slug, title, pathname}) => {
   const disqusShortname = process.env.NEXT_PUBLIC_DISQUS_NAME
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
   let disqusConfig = {
-    url: `https://${siteUrl}${pathname}`,
+    url: siteUrl(pathname),
     identifier: slug,
     title: title,
   }

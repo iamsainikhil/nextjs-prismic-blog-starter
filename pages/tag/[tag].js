@@ -1,10 +1,11 @@
 import {client} from '../../prismic-configuration'
 import Prismic from 'prismic-javascript'
 import {Layout, Caption, Listing} from './../../components'
+import routeURL from './../../utils/routeURL'
 
 export default function Tag({articles, tag}) {
   return (
-    <Layout>
+    <Layout page='Tag' title={tag}>
       <Caption name={tag} type='tag' />
       <Listing articles={articles} />
     </Layout>
