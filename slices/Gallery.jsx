@@ -46,7 +46,6 @@ const Gallery = ({data: {items}}) => {
       height: 'auto',
       width: '100%',
       margin: '0 auto -1rem auto',
-      opacity: 1,
       backgroundColor: theme.colors.accent,
     }),
     footer: (base, state) => {
@@ -59,7 +58,6 @@ const Gallery = ({data: {items}}) => {
         transition,
         fontFamily: theme.fonts.body,
         fontSize: theme.fontSizes[(3, 4)],
-        marginBottom: '2rem',
       }
     },
   }
