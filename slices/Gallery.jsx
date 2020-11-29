@@ -7,7 +7,6 @@ import PropTypes from 'prop-types'
 import Image from 'next/image'
 
 const Gallery = ({data: {items}}) => {
-  console.log(items)
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const {theme} = useThemeUI()
   const toggleModal = () => {

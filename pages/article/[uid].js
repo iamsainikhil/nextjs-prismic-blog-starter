@@ -17,13 +17,11 @@ import {
 import {FiClock} from 'react-icons/fi'
 import Snakke from 'react-snakke'
 import {Banner} from '../../slices'
-import routeURL from '../../utils/routeURL'
 import formatDate from '../../utils/formatDate'
 import {useRouter} from 'next/router'
 
 export default function Article({uid, tags, article, author, articles}) {
   const {asPath: URL} = useRouter()
-  console.log(URL)
   const [showComments, setShowComments] = useState(false)
   const toggleComments = () => {
     setShowComments(!showComments)
