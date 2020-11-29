@@ -1,0 +1,11 @@
+{
+  "Main": {
+    "name": {
+      "type": "Text",
+      "config": {
+        "label": "name",
+        "placeholder": "Name of the category"
+      }
+    }
+  }
+}

@@ -1,0 +1,295 @@
+{
+  "Main": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "uid",
+        "placeholder": "ID of the article"
+      }
+    },
+    "created": {
+      "type": "Date",
+      "config": {
+        "label": "created",
+        "placeholder": "Created date of the article"
+      }
+    },
+    "modified": {
+      "type": "Date",
+      "config": {
+        "label": "modified",
+        "placeholder": "Modified date of the article"
+      }
+    },
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+        "label": "title",
+        "placeholder": "Title of the article"
+      }
+    },
+    "excerpt": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "excerpt",
+        "placeholder": "Short description of the article"
+      }
+    },
+    "read_time": {
+      "type": "Text",
+      "config": {
+        "label": "read_time",
+        "placeholder": "Total time to read the article"
+      }
+    },
+    "article_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "article_image"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "text": [
+            {
+              "name": "text",
+              "display": "text"
+            }
+          ],
+          "quote": [
+            {
+              "name": "quote",
+              "display": "quote"
+            }
+          ],
+          "code": [
+            {
+              "name": "code",
+              "display": "code"
+            }
+          ],
+          "embed": [
+            {
+              "name": "embed",
+              "display": "embed"
+            }
+          ],
+          "raw_text": [],
+          "banner": [],
+          "meta_information": [],
+          "content": [],
+          "image": []
+        },
+        "choices": {
+          "code": {
+            "type": "Slice",
+            "fieldset": "code",
+            "description": "Code Section",
+            "icon": "code",
+            "display": "list",
+            "non-repeat": {
+              "type": {
+                "type": "Select",
+                "config": {
+                  "options": ["Normal", "List"],
+                  "default_value": "Normal",
+                  "label": "type",
+                  "placeholder": "Mention the type of scenario where this code block is used. For ex- type of \"list\" will add some padding to the code block."
+                }
+              },
+              "lang": {
+                "type": "Text",
+                "config": {
+                  "label": "lang",
+                  "placeholder": "Language of the code"
+                }
+              },
+              "code": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "preformatted, embed",
+                  "label": "code",
+                  "placeholder": "Code"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "embed": {
+            "type": "Slice",
+            "fieldset": "Embed",
+            "description": "Embed Section",
+            "icon": "filter_drama",
+            "display": "list",
+            "non-repeat": {
+              "type": {
+                "type": "Select",
+                "config": {
+                  "options": ["Default", "GitHub Gist"],
+                  "default_value": "Default",
+                  "label": "type",
+                  "placeholder": "Type of the embed"
+                }
+              },
+              "embed_title": {
+                "type": "Text",
+                "config": {
+                  "label": "embed_title",
+                  "placeholder": "Title of the Embed Iframe"
+                }
+              },
+              "embed_url": {
+                "type": "Text",
+                "config": {
+                  "label": "embed_url",
+                  "placeholder": "URL of the embed"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "meta_information": {
+            "type": "Slice",
+            "fieldset": "Meta Information",
+            "description": "Meta information based on the URL",
+            "icon": "info",
+            "display": "list",
+            "non-repeat": {
+              "website_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+                  "label": "Website Title",
+                  "placeholder": "Title of the website"
+                }
+              },
+              "website_description": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "Website Description",
+                  "placeholder": "Description of the website"
+                }
+              },
+              "website_url": {
+                "type": "Text",
+                "config": {
+                  "label": "Website URL",
+                  "placeholder": "URL of the website"
+                }
+              },
+              "website_image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "Website Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "content": {
+            "type": "Slice",
+            "fieldset": "Content",
+            "description": "Content can be Rich Text or Raw Text or a Quote",
+            "icon": "border_color",
+            "display": "list",
+            "non-repeat": {
+              "type": {
+                "type": "Select",
+                "config": {
+                  "options": ["Rich Text", "Raw Text", "Quote"],
+                  "default_value": "Rich Text",
+                  "label": "type",
+                  "placeholder": "Type of the content"
+                }
+              },
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+                  "label": "content",
+                  "placeholder": "Type the content...",
+                  "labels": ["right-align", "center-align", "codespan"]
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "image": {
+            "type": "Slice",
+            "fieldset": "Image",
+            "description": "Image slice consists of one or more images",
+            "icon": "collections",
+            "display": "list",
+            "non-repeat": {
+              "type": {
+                "type": "Select",
+                "config": {
+                  "options": ["Banner", "Gallery"],
+                  "default_value": "Banner",
+                  "label": "type",
+                  "placeholder": "Is it a single image or a gallery of images"
+                }
+              }
+            },
+            "repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {},
+                  "thumbnails": [],
+                  "label": "image"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Meta": {
+    "categories": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "category": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["category"],
+              "label": "category",
+              "placeholder": "Link to the category"
+            }
+          },
+          "slug": {
+            "type": "Text",
+            "config": {
+              "label": "slug",
+              "placeholder": "Category Slug"
+            }
+          }
+        },
+        "label": "categories"
+      }
+    },
+    "author": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["author"],
+        "label": "author",
+        "placeholder": "Author of the article"
+      }
+    }
+  }
+}
