@@ -61,7 +61,7 @@ const Listing = ({articles}) => {
               href={hrefResolver(article)}
               as={linkResolver(article)}
               passHref>
-              <span>
+              <a>
                 <Image
                   src={article.data.article_image.url}
                   alt={article.data.article_image.alt}
@@ -71,7 +71,7 @@ const Listing = ({articles}) => {
                   height={article.data.article_image.dimensions.height}
                   className='article-image'
                 />
-              </span>
+              </a>
             </NextLink>
           </div>
           <div
@@ -94,7 +94,10 @@ const Listing = ({articles}) => {
                   height: 'auto',
                 },
               }}>
-              <NextLink href={hrefResolver(article)} as={linkResolver(article)}>
+              <NextLink
+                href={hrefResolver(article)}
+                as={linkResolver(article)}
+                passHref>
                 <a
                   sx={{
                     color: 'inherit',
@@ -111,7 +114,8 @@ const Listing = ({articles}) => {
                       `clicked on ${article.uid} article title`,
                       'text click'
                     )
-                  }>
+                  }
+                  rel='noreferrer noopener'>
                   {RichText.asText(article.data.title)}
                 </a>
               </NextLink>
@@ -126,8 +130,11 @@ const Listing = ({articles}) => {
                 },
               }}>
               {truncateText(`${RichText.asText(article.data.excerpt)}`)}&nbsp;
-              <NextLink href={hrefResolver(article)} as={linkResolver(article)}>
-                <span
+              <NextLink
+                href={hrefResolver(article)}
+                as={linkResolver(article)}
+                passHref>
+                <a
                   sx={{variant: 'styles.a'}}
                   aria-label={`Read the article on ${RichText.asText(
                     article.data.title
@@ -141,9 +148,10 @@ const Listing = ({articles}) => {
                       `clicked on ${article.uid} article read more`,
                       'link click'
                     )
-                  }>
+                  }
+                  rel='noreferrer noopener'>
                   Read More
-                </span>
+                </a>
               </NextLink>
             </p>
             <div

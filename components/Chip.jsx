@@ -16,7 +16,8 @@ const Chip = ({name, slug, type, page = 'article'}) => {
     <p sx={{m: 1}}>
       <NextLink
         href={hrefResolver({type, uid: slug})}
-        as={linkResolver({type, uid: slug})}>
+        as={linkResolver({type, uid: slug})}
+        passHref>
         <a
           sx={{
             textDecoration: 'none',
@@ -34,7 +35,8 @@ const Chip = ({name, slug, type, page = 'article'}) => {
           }}
           onClick={() =>
             trackGAEvent(page, `clicked on ${name} ${type}`, 'chip click')
-          }>
+          }
+          rel='noreferrer noopener'>
           {name}
         </a>
       </NextLink>

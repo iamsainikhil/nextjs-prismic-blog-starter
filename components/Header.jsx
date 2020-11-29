@@ -15,7 +15,7 @@ const Header = ({siteTitle = ''}) => {
         <div className='header-content'>
           <div>
             <Styled.h1 style={{margin: '0'}}>
-              <NextLink href='/'>
+              <NextLink href='/' passHref>
                 <Styled.a
                   style={{
                     textDecoration: 'none',
@@ -24,7 +24,8 @@ const Header = ({siteTitle = ''}) => {
                   }}
                   onClick={() =>
                     trackGAEvent('logo', `clicked on site logo`, 'link click')
-                  }>
+                  }
+                  rel='noreferrer noopener'>
                   Blog
                 </Styled.a>
               </NextLink>
