@@ -1,9 +1,8 @@
 {
   "name": "nextjs-prismic-blog-starter",
   "description": "My personal blog built with nextjs and Prismic",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "author": "Sai Nikhil <contact@iamsainikhil.com>",
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
