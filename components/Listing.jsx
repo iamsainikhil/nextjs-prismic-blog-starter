@@ -178,11 +178,11 @@ const Listing = ({articles}) => {
                 py: 1,
               }}>
               <em
-                title={`Article posted on ${formatDate(article.data.modified)}`}
+                title={`Article posted on ${formatDate(article.data.created)}`}
                 aria-label={`Article posted on ${formatDate(
-                  article.data.modified
+                  article.data.created
                 )}`}>
-                {formatDate(article.data.modified)}
+                {formatDate(article.data.created)}
               </em>
               <span sx={{mx: 2, fontSize: '10px'}}>|</span>
               <em

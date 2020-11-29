@@ -8,13 +8,13 @@ import Listing from './Listing'
 const RelatedArticles = ({uid, categories, tags: articleTags, related}) => {
   // get slugs from categories of the current article
   const articleSlugs = categories.map(({slug}) => slug)
-  let relatedArticles = {}
+  let relatedArticles = []
 
-  relatedArticles.edges = related.edges
-    .filter((article) => article.node.uid !== uid) // remove current article from articles list
+  relatedArticles = related
+    .filter((article) => article.uid !== uid) // remove current article from articles list
     .map((article) => {
-      const {categories} = article.node.data
-      const {tags} = article.node
+      const {categories} = article.data
+      const {tags} = article
       let categoryMatch = false
       let tagMatch = false
 
@@ -43,7 +43,7 @@ const RelatedArticles = ({uid, categories, tags: articleTags, related}) => {
     <Fragment>
       <h3 sx={{textAlign: 'center', variant: 'styles.h3'}}>Related Articles</h3>
       <div>
-        {relatedArticles.edges.length > 0 ? (
+        {relatedArticles.length > 0 ? (
           <Listing articles={relatedArticles} />
         ) : (
           <p
@@ -63,7 +63,7 @@ RelatedArticles.propTypes = {
   uid: PropTypes.string,
   categories: PropTypes.array,
   articleTags: PropTypes.array,
-  related: PropTypes.object,
+  related: PropTypes.array,
 }
 
 export default RelatedArticles

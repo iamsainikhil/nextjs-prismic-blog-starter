@@ -3,7 +3,7 @@ module.exports = {
   // mention the external website domain below
   // for more info, visit https://nextjs.org/docs/basic-features/image-optimization#domains
   images: {
-    domains: ['images.prismic.io'],
+    domains: ['images.prismic.io', 'prismic-io.s3.amazonaws.com'],
   },
   // visit https://nextjs.org/docs/api-reference/next.config.js/react-strict-mode
   // for more info about React strict mode

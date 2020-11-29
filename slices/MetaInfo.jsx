@@ -2,6 +2,8 @@
 /** @jsx jsx */
 import {jsx} from 'theme-ui'
 import PropTypes from 'prop-types'
+import Image from 'next/image'
+import {RichText} from 'prismic-reactjs'
 
 const MetaInfo = ({meta}) => {
   return (
@@ -23,8 +25,10 @@ const MetaInfo = ({meta}) => {
         },
       }}>
       <div sx={{px: 2}}>
-        <h5 sx={{fontSize: [2], my: 0}}>{meta.website_title.text}</h5>
-        <p>{meta.website_description.text}</p>
+        <h5 sx={{fontSize: [2], my: 0}}>
+          {RichText.asText(meta.website_title)}
+        </h5>
+        <p>{RichText.asText(meta.website_description)}</p>
         <a
           href={meta.website_url}
           sx={{variant: 'styles.a'}}
@@ -34,15 +38,14 @@ const MetaInfo = ({meta}) => {
         </a>
       </div>
       <div>
-        <img
-          srcSet={meta.website_image.fluid.srcSet}
-          alt={meta.website_title.alt}
-          title={meta.website_title.alt}
-          sx={{
-            width: '200px',
-            maxHeight: '125px',
-            background: 'gray',
-          }}
+        <Image
+          src={meta.website_image.url}
+          alt={meta.website_image.alt}
+          title={meta.website_image.alt}
+          layout='fixed'
+          width='200'
+          height='100'
+          className='meta-image'
         />
       </div>
     </div>

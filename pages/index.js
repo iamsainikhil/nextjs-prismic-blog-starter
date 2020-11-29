@@ -17,7 +17,7 @@ export default function Home(props) {
 export async function getStaticProps() {
   const articles = await client.query(
     Prismic.Predicates.at('document.type', 'article'),
-    {orderings: '[my.article.modified desc]', pageSize: 10, page: 1}
+    {orderings: '[my.article.created desc]', pageSize: 10, page: 1}
   )
   return {
     props: {

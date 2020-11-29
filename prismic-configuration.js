@@ -11,19 +11,21 @@ export const accessToken = process.env.PRISMIC_TOKEN
 export const client = Prismic.client(apiEndpoint, {accessToken})
 
 export const linkResolver = (doc) => {
-  // URL for a category type
-  if (doc.type === 'category') {
-    return `/category/${doc.uid}`
-  }
+  if (doc) {
+    // URL for a category type
+    if (doc.type === 'category') {
+      return `/category/${doc.uid}`
+    }
 
-  // URL for a tag type
-  if (doc.type === 'tag') {
-    return `/tag/${doc.uid}`
-  }
+    // URL for a tag type
+    if (doc.type === 'tag') {
+      return `/tag/${doc.uid}`
+    }
 
-  // URL for a article type
-  if (doc.type === 'article') {
-    return `/article/${doc.uid}`
+    // URL for a article type
+    if (doc.type === 'article') {
+      return `/article/${doc.uid}`
+    }
   }
 
   // Backup for all other types

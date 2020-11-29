@@ -4,10 +4,10 @@ import Header from '../components/Header'
 import Footer from './Footer'
 import {IoIosArrowDropupCircle} from 'react-icons/io'
 
-const Layout = ({children}) => {
+const Layout = ({title, children}) => {
   return (
     <>
-      <Head title='Blog | NextJS Prismic Blog Starter'></Head>
+      <Head title={title}></Head>
       <div className='content-wrapper'>
         <Header />
         <main className='main'>{children}</main>

@@ -3,8 +3,10 @@
 import {jsx} from 'theme-ui'
 import PropTypes from 'prop-types'
 import Icon from './Icon'
-import {Image} from 'next/image'
+import Image from 'next/image'
 import {RichText} from 'prismic-reactjs'
+import {linkResolver} from '../prismic-configuration'
+import htmlSerializer from '../utils/htmlSerializer'
 
 const flexbox = {
   display: 'flex',
@@ -36,9 +38,9 @@ const Author = ({author}) => {
         src={author.avatar.url}
         alt={author.avatar.alt}
         title={author.avatar.alt}
-        layout='responsive'
-        width={author.avatar.dimensions.width}
-        height={author.avatar.dimensions.height}
+        layout='fixed'
+        width='100'
+        height='100'
         className='author-avatar'
       />
       <div>
@@ -49,7 +51,7 @@ const Author = ({author}) => {
           }}>
           {author.name}
         </h3>
-        <p dangerouslySetInnerHTML={{__html: RichText.asHtml(author.bio)}}></p>
+        <RichText render={author.bio} htmlSerializer={htmlSerializer} />
         <div sx={{...flexbox, mt: -1}}>
           {author.social_links.map((platform, index) => {
             return (
