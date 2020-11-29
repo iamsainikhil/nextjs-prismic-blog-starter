@@ -4,7 +4,7 @@ import {jsx} from 'theme-ui'
 import {SiNextDotJs} from 'react-icons/si'
 import {FaHeart} from 'react-icons/fa'
 import Icon from './Icon'
-import trackGAEvent from './../utils/trackGAEvent'
+import {trackGAEvent} from '../utils/googleAnalytics'
 
 const Footer = () => {
   return (

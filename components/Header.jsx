@@ -4,7 +4,7 @@ import Headroom from 'react-headroom'
 import {Styled, useThemeUI} from 'theme-ui'
 // import { GoSearch } from "react-icons/go"
 import {FiSun, FiMoon} from 'react-icons/fi'
-import trackGAEvent from './../utils/trackGAEvent'
+import {trackGAEvent} from '../utils/googleAnalytics'
 
 const Header = ({siteTitle = ''}) => {
   const {theme, colorMode, setColorMode} = useThemeUI()

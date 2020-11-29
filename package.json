@@ -21,6 +21,7 @@
     "react": "17.0.1",
     "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "17.0.1",
+    "react-ga": "^3.3.0",
     "react-gist": "^1.2.2",
     "react-headroom": "^3.0.1",
     "react-icons": "^4.1.0",

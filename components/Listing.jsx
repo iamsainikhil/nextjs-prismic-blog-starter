@@ -10,7 +10,7 @@ import styled from '@emotion/styled'
 import {FiClock} from 'react-icons/fi'
 import formatDate from '../utils/formatDate'
 import Chip from './Chip'
-import trackGAEvent from '../utils/trackGAEvent'
+import {trackGAEvent} from '../utils/googleAnalytics'
 
 /**
  * Truncate the excerpt text based on character count

@@ -7,5 +7,5 @@ module.exports = {
   },
   // visit https://nextjs.org/docs/api-reference/next.config.js/react-strict-mode
   // for more info about React strict mode
-  reactStrictMode: true,
+  // reactStrictMode: true,
 }

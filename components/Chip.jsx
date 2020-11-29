@@ -4,7 +4,7 @@ import {jsx} from 'theme-ui'
 import PropTypes from 'prop-types'
 import {default as NextLink} from 'next/link'
 import {hrefResolver, linkResolver} from './../prismic-configuration'
-import trackGAEvent from './../utils/trackGAEvent'
+import {trackGAEvent} from '../utils/googleAnalytics'
 
 /**
  * @param {String} slug (ID)
