@@ -100,6 +100,10 @@ Therefore the starter has following features:
 
   ![Content Slice](https://github.com/iamsainikhil/nextjs-prismic-blog-starter/raw/master/README_images/prismic_article_data_fields_slice_content.png)
 
+  - **Alert**: This slice has 4 types (Info, Success, Warning, and Danger) based on which the `alert` UI will have different background color as well as border color.
+
+  ![Alert Slice](https://github.com/iamsainikhil/nextjs-prismic-blog-starter/raw/master/README_images/alert_slice_config.png)
+
   - **Image** (banner or gallery) → Use this slice to show a `banner` (single image with caption) or a `gallery` (group of images)
 
     ![Image Slice](https://github.com/iamsainikhil/nextjs-prismic-blog-starter/raw/master/README_images/prismic_article_data_fields_slice_image.png)
