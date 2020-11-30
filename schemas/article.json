@@ -86,7 +86,19 @@
           "banner": [],
           "meta_information": [],
           "content": [],
-          "image": []
+          "image": [
+            {
+              "name": "image",
+              "display": "image"
+            }
+          ],
+          "alert": [
+            {
+              "name": "alert",
+              "display": "alert"
+            }
+          ],
+          "fucker": []
         },
         "choices": {
           "code": {
@@ -200,14 +212,14 @@
           "content": {
             "type": "Slice",
             "fieldset": "Content",
-            "description": "Content can be Rich Text or Raw Text or a Quote",
+            "description": "Content can be Rich Text or a Quote",
             "icon": "border_color",
             "display": "list",
             "non-repeat": {
               "type": {
                 "type": "Select",
                 "config": {
-                  "options": ["Rich Text", "Raw Text", "Quote"],
+                  "options": ["Rich Text", "Quote"],
                   "default_value": "Rich Text",
                   "label": "type",
                   "placeholder": "Type of the content"
@@ -252,6 +264,33 @@
                 }
               }
             }
+          },
+          "alert": {
+            "type": "Slice",
+            "fieldset": "Alert",
+            "description": "A visually attention seeking information can be achieved with this slice.",
+            "icon": "announcement",
+            "display": "list",
+            "non-repeat": {
+              "type": {
+                "type": "Select",
+                "config": {
+                  "options": ["info", "success", "warning", "danger"],
+                  "default_value": "info",
+                  "label": "type",
+                  "placeholder": "Alert Type"
+                }
+              },
+              "content": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "label": "content",
+                  "placeholder": "Alert content"
+                }
+              }
+            },
+            "repeat": {}
           }
         }
       }

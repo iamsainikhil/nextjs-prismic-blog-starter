@@ -13,7 +13,7 @@ const DisqusComments = ({slug, title, pathname}) => {
     title: title,
   }
   return (
-    <div sx={{variant: 'styles'}}>
+    <div>
       <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
     </div>
   )
