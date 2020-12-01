@@ -77,7 +77,16 @@ export default function Article({uid, tags, article, author, articles}) {
             )
           })}
         </div>
-        <Styled.p sx={{my: 4}}>{RichText.asText(article.excerpt)}</Styled.p>
+
+        <Styled.p
+          sx={{
+            my: 4,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          {RichText.asText(article.excerpt)}
+        </Styled.p>
 
         <Banner image={article.article_image} />
 

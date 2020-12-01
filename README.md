@@ -92,15 +92,15 @@ Therefore the starter has following features:
 
 - **`Slices`**(Optional):
 
-  - **Content**: This slice has 2 types (Rich Text and Quote) based on which the `content` is rendered in the UI.
+  - **Content**: This slice has 2 types (Rich Text and Quote) based on which the `content` is rendered in the UI. Support for `inline code` using `codespan` label which appear in the HTML with a class `codespan`.
 
-    - **Text** (Rich Text Section) **→** Rich WYSIWYG editor content which is consumed in the UI as the HTML. Support for `inline code` which appear in the HTML with a class `codespan`.
+    - **Text** (Rich Text Section) **→** Rich WYSIWYG editor content which is consumed in the UI as the HTML.
 
-    - **Quote** (Blockquote Section) → Select this type to have any blockquote content in the article
+    - **Quote** (Blockquote Section) → Select this type to have any blockquote content in the article.
 
   ![Content Slice](https://github.com/iamsainikhil/nextjs-prismic-blog-starter/raw/master/README_images/prismic_article_data_fields_slice_content.png)
 
-  - **Alert**: This slice has 4 types (Info, Success, Warning, and Danger) based on which the `alert` UI will have different background color as well as border color.
+  - **Alert**: This slice has 4 types (Info, Success, Warning, and Danger) based on which the `alert` UI will have different background color as well as border color. Support for `inline code` using `codespan` label which appear in the HTML with a class `codespan`.
 
   ![Alert Slice](https://github.com/iamsainikhil/nextjs-prismic-blog-starter/raw/master/README_images/alert_slice_config.png)
 

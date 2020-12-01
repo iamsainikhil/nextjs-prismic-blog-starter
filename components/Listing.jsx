@@ -56,7 +56,7 @@ const Listing = ({articles}) => {
           aria-label={`Read article ${article.uid}`}
           title={article.uid}
           key={article.uid}>
-          <div>
+          <div style={{overflow: 'hidden'}}>
             <NextLink
               href={hrefResolver(article)}
               as={linkResolver(article)}
