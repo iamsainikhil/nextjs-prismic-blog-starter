@@ -406,4 +406,4 @@ This starter successfully passed the color contrast and accessibility tests.
 
 - a11y Color Contrast Accessibility tested at [a11y](https://color.a11y.com/Contrast/) ![a11y Color Contrast Accessibility Result](https://github.com/iamsainikhil/nextjs-prismic-blog-starter/raw/master/README_images/a11y_color_result.png)
 
-- Web Accessibility tested at [ACHECKER](https://achecker.ca/checker/index.php) ![Web Accessibility Result](https://github.com/iamsainikhil/nextjs-prismic-blog-starter/raw/master/README_images/web_accessibility_result.png)
+<!-- - Web Accessibility tested at [ACHECKER](https://achecker.ca/checker/index.php) ![Web Accessibility Result](https://github.com/iamsainikhil/nextjs-prismic-blog-starter/raw/master/README_images/web_accessibility_result.png) -->

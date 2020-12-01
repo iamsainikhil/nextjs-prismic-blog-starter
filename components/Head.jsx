@@ -26,6 +26,7 @@ const Head = ({
           name='keywords'
           content='blog,nextjs,prismic,theme UI,prismjs,react,scss,blog-starter'
         />
+        <meta name='author' content='Sai Nikhil'></meta>
         {/* Twitter */}
         <meta name='twitter:card' content='summary_large_image' key='twcard' />
         <meta name='twitter:creator' content={twitterHandle} key='twhandle' />
