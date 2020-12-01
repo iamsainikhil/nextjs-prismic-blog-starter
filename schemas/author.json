@@ -17,9 +17,10 @@
     "bio": {
       "type": "StructuredText",
       "config": {
-        "multi": "paragraph, em",
+        "multi": "paragraph, strong, em, hyperlink",
         "label": "bio",
-        "placeholder": "About the author"
+        "placeholder": "About the author",
+        "labels": ["codespan"]
       }
     },
     "avatar": {
