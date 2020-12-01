@@ -399,11 +399,3 @@ Looking for more guidance? Full documentation for Prismic lives [on the website
 
 - **For most developers, I recommend starting with our [in-depth tutorial for creating a site with Gatsby & Prismic](https://prismic.io/docs/gatsby/getting-started/home).** It starts with zero assumptions about your level of ability and walks through every step of the process.
 - **To dive straight into code samples, check the** [How To Guides](https://user-guides.prismic.io/en/collections/22550-how-to-guides)**.**
-
-# **🌈 Accessibility**
-
-This starter successfully passed the color contrast and accessibility tests.
-
-- a11y Color Contrast Accessibility tested at [a11y](https://color.a11y.com/Contrast/) ![a11y Color Contrast Accessibility Result](https://github.com/iamsainikhil/nextjs-prismic-blog-starter/raw/master/README_images/a11y_color_result.png)
-
-<!-- - Web Accessibility tested at [ACHECKER](https://achecker.ca/checker/index.php) ![Web Accessibility Result](https://github.com/iamsainikhil/nextjs-prismic-blog-starter/raw/master/README_images/web_accessibility_result.png) -->
