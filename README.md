@@ -40,12 +40,12 @@ Therefore the starter has following features:
 - Prismic as Headless CMS
 - [Theme UI](https://theme-ui.com/home) for styling
 - Prism React Renderer plugin using PrismJS highlighting
-- Responsive images (gatsby-image)
+- Responsive images (nextjs-image)
   - The right image size for every screen size
   - Traced SVG Loading (Lazy-Loading)
   - WebP Support
   - Prismic Imgix transformations
-- SEO
+- SEO (nextjs-head)
   - OpenGraph Tags
   - Twitter Tags
   - Favicons
@@ -176,8 +176,6 @@ Therefore the starter has following features:
 
 1. **Create a NextJS site.**
 
-   Use the [Gatsby CLI](https://www.gatsbyjs.org/tutorial/part-zero/) to create a new site, specifying the default starter.
-
    ```bash
    npx create-next-app
 
@@ -191,7 +189,7 @@ Therefore the starter has following features:
 
 3. **Environment File**
 
-   - Go to _API & Security_ section of your _Prismic_ project, grab the Permanent Access Token with _Access to master/README_images_.
+   - Go to _API & Security_ section of your _Prismic_ project, grab the Permanent Access Token with _Access to master_.
    - The Repository Name is the name you have entered at the creation of the repository (you’ll also find it as the subdomain in the URL)
    - This project has the support for [DISQUS](https://disqus.com/) comments section which need your DISQUS project name which can be found at _https://<your-project-shortname>.disqus.com/admin/settings/general/_
    - Create an `.env` file in the root directory of the project. Add the following properties in it:
@@ -317,7 +315,7 @@ A list of packages used in this starter project.
 8. **`react-images`:** A mobile-friendly, highly customizable, carousel component for displaying media in ReactJS. For more info, check [here](https://github.com/jossmac/react-images).
 9. **`react-snakke`:** Reading position indicator for React used to display the progress of the article as you scroll down the page. For more info, check [here](https://github.com/diogomoretti/react-snakke). This is one of the package which can be completely avoidable if you don't want it 😄.
 10. **`react-toastify`:** React notification made easy. This is used to notify users of which code block they copied to clipboard used in Code slice `src/slices/Code.jsx`. For more info, check [here](https://github.com/fkhadra/react-toastify).
-11. **`disqus-react`:** A plugin that simplifies adding DISQUS comments to your Gatsby website. For more info, check [here](https://www.gatsbyjs.org/packages/gatsby-plugin-disqus/).
+11. **`disqus-react`:** A React component for Disqus. For more info, check [here](https://github.com/disqus/disqus-react).
 12. **`next-google-fonts`:** A simple plugin for loading Google Fonts fast and asynchronously. For more info, check [here](https://github.com/joe-bell/next-google-fonts)
 13. **`next-pwa`:** A simple plugin to add PWA support for NextJS app. For more info, check [here](https://github.com/shadowwalker/next-pwa)
 14. **`prismic-javascript`:** JavaScript development for prismic.io API v2. For more info, check [here](https://github.com/prismicio/prismic-javascript)
@@ -397,5 +395,5 @@ Looking for more guidance? Full documentation for NextJS lives [on the website]
 
 Looking for more guidance? Full documentation for Prismic lives [on the website](https://prismic.io/docs). Here are some places to start:
 
-- **For most developers, I recommend starting with our [in-depth tutorial for creating a site with Gatsby & Prismic](https://prismic.io/docs/gatsby/getting-started/home).** It starts with zero assumptions about your level of ability and walks through every step of the process.
-- **To dive straight into code samples, check the** [How To Guides](https://user-guides.prismic.io/en/collections/22550-how-to-guides)**.**
+- **For most developers, I recommend starting with our [in-depth tutorial for creating a site with NextJS & Prismic](https://user-guides.prismic.io/en/collections/22783-examples#next-js-samples).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+- **To dive straight into code samples, check the** [How To Guides](https://prismic.io/docs/technologies/prismic-and-nextjs)**.**
