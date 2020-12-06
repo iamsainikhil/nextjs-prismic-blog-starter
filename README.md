@@ -34,10 +34,12 @@ Multiple features of Prismic are used in this starter:
 - **Slices**: Enrich your blogposts with custom quotes, images or codeblocks. You can order them how you like. When you used the *Image-Slice* the image will get inserted and optimized by **nextjs-image**
 - **Relationship fields**: Categorize your blog articles in Categories via a relationship field. You can change categories on the fly
 - **Both custom types (Single / Repeatable)**: Articles, Tags, Categories, Author sections of the website are managed with Prismic. The social media links or the header & footer sections are hardcoded content which can be customized easily!
+- **Prismic Preview**: Prismic allows preview of any document which comes handy before publishing a document. This starter has got preview setup for article page. For more info, check [here](https://prismic.io/docs/technologies/previews-nextjs) and [here](https://user-guides.prismic.io/en/articles/768819-preview-a-document)
 
 Therefore the starter has following features:
 
 - Prismic as Headless CMS
+- Prismic Previews
 - [Theme UI](https://theme-ui.com/home) for styling
 - Prism React Renderer plugin using PrismJS highlighting
 - Responsive images (nextjs-image)
@@ -54,7 +56,7 @@ Therefore the starter has following features:
 - NextJS optimized google fonts (nextjs-google-fonts)
 - Configurable
 
-  - Use the `next-config.js` & `layout.jsx` to easily change the most important information
+  - Use the `next-config.js`, `Head.jsx`, and `Layout.jsx` to easily change the most important information
   - Themeable with `theme.js`
 
 **⚠️ Note: This blog starter uses [Prismic](https://prismic.io/) as the Content Management System. Hence, you need to have the required data first before start using this starter.**
@@ -197,7 +199,9 @@ Therefore the starter has following features:
    ```json
     NEXT_PUBLIC_GA_ID=<your Google Analytics tracking ID> (Optional)
 
-    NEXT_PUBLIC_SITE_URL=<URL of the deployed app>
+    NEXT_PUBLIC_SITE_URL=<URL of the deployed app (Optional)>
+
+    NEXT_PUBLIC_PRISMIC_REPO=<your prismic repository name (Required)>
 
     PRISMIC_API_URL=<your prismic repository API URL> (Required)
 
@@ -363,7 +367,7 @@ Prismic Webhook allows you to automatically or manually trigger a deployment pro
 
 - [x] Publish this starter as a template
 - [x] Analytics support (Google Analytics)
-- [ ] Prismic Preview Setup
+- [x] Prismic Preview Setup
 - [ ] Pagination Feature
 - [ ] Search Feature
 - [ ] Testing

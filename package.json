@@ -35,10 +35,11 @@
     "blog",
     "nextjs",
     "prismic",
+    "prismic-previews",
     "theme UI",
     "prismjs",
     "react",
-    "typeface",
+    "google-fonts",
     "scss"
   ],
   "license": "MIT",
