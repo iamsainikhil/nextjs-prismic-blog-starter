@@ -9,6 +9,7 @@ const Head = ({
   description,
   image,
 }) => {
+  const prismicRepo = process.env.NEXT_PUBLIC_PRISMIC_REPO
   const twitterHandle = '@iamsainikhil12'
   const siteName = 'NextJS Prismic Blog Starter'
   const pageTitle = `${title} | ${page} | ${siteName}`
@@ -64,6 +65,10 @@ const Head = ({
         <meta name='msapplication-TileColor' content='#00aba9' />
         <meta name='theme-color' content='#333' />
         <title>{pageTitle}</title>
+        <script
+          async
+          defer
+          src={`https://static.cdn.prismic.io/prismic.js?new=true&repo=${prismicRepo}`}></script>
         {children}
       </NextHead>
     </>

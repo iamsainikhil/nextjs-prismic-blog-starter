@@ -163,18 +163,27 @@ export default function Article({uid, tags, article, author, articles}) {
   )
 }
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({
+  params,
+  preview = null,
+  previewData = {},
+}) {
   const {uid} = params
-  const {tags, data: article} = await client.getByUID('article', uid)
+  const {ref} = previewData
+  const {tags, data: article} = await client.getByUID(
+    'article',
+    uid,
+    ref ? {ref} : null
+  )
   // get authorID
   const authorId = await article?.author?.id
   // fetch author data based on authorId
-  const {data: author} = await client.getByID(authorId)
+  const {data: author} = await client.getByID(authorId, ref ? {ref} : null)
   const {results: articles} = await client.query(
     Prismic.Predicates.at('document.type', 'article')
   )
   return {
-    props: {uid, tags, article, author, articles},
+    props: {uid, tags, article, author, articles, preview},
   }
 }
 
