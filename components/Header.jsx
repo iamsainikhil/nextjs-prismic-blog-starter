@@ -1,12 +1,11 @@
 import {default as NextLink} from 'next/link'
-import PropTypes from 'prop-types'
 import Headroom from 'react-headroom'
 import {Styled, useThemeUI} from 'theme-ui'
 // import { GoSearch } from "react-icons/go"
 import {FiSun, FiMoon} from 'react-icons/fi'
 import {trackGAEvent} from '../utils/googleAnalytics'
 
-const Header = ({siteTitle = ''}) => {
+const Header = () => {
   const {theme, colorMode, setColorMode} = useThemeUI()
 
   return (
@@ -49,7 +48,7 @@ const Header = ({siteTitle = ''}) => {
             </p> */}
             <p>
               {colorMode === 'light' ? (
-                <Styled.a
+                <span
                   title='Switch to Dark Mode'
                   aria-label='Switch to Dark Mode'>
                   <FiSun
@@ -63,9 +62,9 @@ const Header = ({siteTitle = ''}) => {
                       )
                     }}
                   />
-                </Styled.a>
+                </span>
               ) : (
-                <Styled.a
+                <span
                   title='Switch to Light Mode'
                   aria-label='Switch to Light Mode'>
                   <FiMoon
@@ -79,7 +78,7 @@ const Header = ({siteTitle = ''}) => {
                       )
                     }}
                   />
-                </Styled.a>
+                </span>
               )}
             </p>
           </div>
@@ -87,10 +86,6 @@ const Header = ({siteTitle = ''}) => {
       </header>
     </Headroom>
   )
-}
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
 }
 
 export default Header
