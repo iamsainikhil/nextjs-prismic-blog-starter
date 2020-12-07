@@ -10,7 +10,7 @@ import {
   Alert,
 } from '../slices'
 
-const SliceZone = ({slices}) => {
+const SliceMachine = ({slices}) => {
   return slices.map((slice, index) => {
     if (!slice) return null
     switch (slice.slice_type) {
@@ -40,8 +40,8 @@ const SliceZone = ({slices}) => {
   })
 }
 
-SliceZone.propTypes = {
+SliceMachine.propTypes = {
   slices: PropTypes.array,
 }
 
-export default SliceZone
+export default SliceMachine

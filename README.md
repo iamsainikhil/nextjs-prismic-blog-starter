@@ -297,7 +297,7 @@ A quick look at the top-level files and directories you'll see in the applicatio
 ├── utils
 ```
 
-1. **`components`:** This directory contain all of the reusable React components like Chip, Icon, Image, Listing, Layout, SEO, SliceZone, etc.
+1. **`components`:** This directory contain all of the reusable React components like Chip, Icon, Image, Listing, Layout, SEO, SliceMachine, etc.
 2. **`public/fonts`:** This directory contain any custom font files which are imported in `styles/_fonts.scss` and later consumed in `theme.js`.
 3. **`public/images`:** This directory contain images which are used in the components and later be optimized during NextJS build.
 4. **`pages`:** This directory contain files which represent web pages like 404, index.js (homepage), \_app.js, etc. Moreover, you can generate dynamic pages using the `getStaticPaths` and `getStaticProps` methods based on the structure `pages/[sub-page]/[param].js`.

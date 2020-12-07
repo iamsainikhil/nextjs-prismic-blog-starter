@@ -7,7 +7,7 @@ import {RichText} from 'prismic-reactjs'
 import Prismic from 'prismic-javascript'
 import {
   Layout,
-  SliceZone,
+  SliceMachine,
   Chip,
   Author,
   Share,
@@ -91,7 +91,7 @@ export default function Article({uid, tags, article, author, articles}) {
         <Banner image={article.article_image} />
 
         {/* slices */}
-        <SliceZone slices={article.body} />
+        <SliceMachine slices={article.body} />
 
         <Styled.em sx={{color: 'gray'}}>
           This article was last updated on {formatDate(article.modified)}
