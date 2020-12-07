@@ -1,24 +1,41 @@
-import Layout from './Layout'
-import Head from './Head'
-import Header from './Header'
-import Listing from './Listing'
-import Footer from './Footer'
-import SliceZone from './sliceZone'
-import Caption from './Caption'
-import Chip from './Chip'
-import Icon from './Icon'
-import Author from './Author'
-import Share from './Share'
-import DisqusComments from './DisqusComments'
-import RelatedArticles from './RelatedArticles'
+import dynamic from 'next/dynamic'
+import Loader from './Loader'
+
+const Layout = dynamic(() => import('./Layout'), {
+  loading: Loader,
+})
+const Listing = dynamic(() => import('./Listing'), {
+  loading: Loader,
+})
+const Caption = dynamic(() => import('./Caption'), {
+  loading: Loader,
+})
+const Chip = dynamic(() => import('./Chip'), {
+  loading: Loader,
+})
+const Icon = dynamic(() => import('./Icon'), {
+  loading: Loader,
+})
+const Author = dynamic(() => import('./Author'), {
+  loading: Loader,
+})
+const Share = dynamic(() => import('./Share'), {
+  loading: Loader,
+})
+const DisqusComments = dynamic(() => import('./DisqusComments'), {
+  loading: Loader,
+})
+const RelatedArticles = dynamic(() => import('./RelatedArticles'), {
+  loading: Loader,
+})
+const SliceMachine = dynamic(() => import('./SliceMachine'), {
+  loading: Loader,
+})
 
 export {
   Layout,
-  Head,
-  Header,
   Listing,
-  Footer,
-  SliceZone,
+  SliceMachine,
   Caption,
   Chip,
   Icon,

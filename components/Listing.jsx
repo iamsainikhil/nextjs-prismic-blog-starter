@@ -145,12 +145,12 @@ const Listing = ({articles}) => {
                   onClick={() =>
                     trackGAEvent(
                       'home',
-                      `clicked on ${article.uid} article read more`,
+                      `clicked on ${article.uid} read full article`,
                       'link click'
                     )
                   }
                   rel='noreferrer noopener'>
-                  Read More
+                  Read Full Article
                 </a>
               </NextLink>
             </p>
