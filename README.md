@@ -53,6 +53,7 @@ Therefore the starter has following features:
   - Favicons
 - Offline Support
 - WebApp Manifest Support
+- NextJS dynamic code-splitting of components
 - NextJS optimized google fonts (nextjs-google-fonts)
 - Configurable
 
@@ -299,7 +300,7 @@ A quick look at the top-level files and directories you'll see in the applicatio
 1. **`components`:** This directory contain all of the reusable React components like Chip, Icon, Image, Listing, Layout, SEO, SliceZone, etc.
 2. **`public/fonts`:** This directory contain any custom font files which are imported in `styles/_fonts.scss` and later consumed in `theme.js`.
 3. **`public/images`:** This directory contain images which are used in the components and later be optimized during NextJS build.
-4. **`pages`:** This directory contain files which represent web pages like 404, index.js (homepage), etc. Moreover, you can generate dynamic pages using the `getStaticPaths` and `getStaticProps` methods based on the structure `pages/[sub-page]/[param].js`.
+4. **`pages`:** This directory contain files which represent web pages like 404, index.js (homepage), \_app.js, etc. Moreover, you can generate dynamic pages using the `getStaticPaths` and `getStaticProps` methods based on the structure `pages/[sub-page]/[param].js`.
 5. **`schemas`:** This directory contain JSON schema files which represent each custom type defined in Prismic.
 6. **`slices`:** This directory is the ❤️ of the article page with files representing the slices discussed earlier in Prismic setup section.
 7. **`styles`:** This directory contain scss files which include further styling of the HTML using old school process. PS: New process is to just use `Emotion` based `CSS-in-JS` styling which is also used extensively across the project.
