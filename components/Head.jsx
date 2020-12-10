@@ -65,6 +65,7 @@ const Head = ({
         <meta name='msapplication-TileColor' content='#00aba9' />
         <meta name='theme-color' content='#333' />
         <title>{pageTitle}</title>
+        {/* prismic preview toolbar */}
         <script
           async
           defer
