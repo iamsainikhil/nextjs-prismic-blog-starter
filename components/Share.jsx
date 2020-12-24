@@ -30,7 +30,7 @@ const Share = ({articleURL, articleName}) => {
     },
     {
       name: 'WhatsApp',
-      url: `https://wa.me/?text=${articleName} ${URL}`,
+      url: `https://wa.me/?text=${encodeURIComponent(`${articleName} ${URL}`)}`,
     },
   ]
 
