@@ -10,6 +10,7 @@ const Caption = ({name, type}) => {
           fontFamily: 'light',
           fontSize: [2, 3, 4],
           textAlign: 'center',
+          mt: 0,
         }}>
         {type === 'articles' ? (
           <Styled.em>
