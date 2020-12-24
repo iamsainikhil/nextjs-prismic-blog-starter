@@ -14,7 +14,7 @@ import {
   DisqusComments,
   RelatedArticles,
 } from '../../components'
-import {FiClock} from 'react-icons/fi'
+import {FiClock, FiShare2} from 'react-icons/fi'
 import Snakke from 'react-snakke'
 import {Banner} from '../../slices'
 import formatDate from '../../utils/formatDate'
@@ -23,6 +23,10 @@ import {useRouter} from 'next/router'
 export default function Article({uid, tags, article, author, articles}) {
   const {asPath: URL} = useRouter()
   const [showComments, setShowComments] = useState(false)
+  const [showShareIcons, setShowShareIcons] = useState(false)
+  const toggleShareIcons = () => {
+    setShowShareIcons(!showShareIcons)
+  }
   const toggleComments = () => {
     setShowComments(!showComments)
   }
@@ -45,7 +49,16 @@ export default function Article({uid, tags, article, author, articles}) {
         <Styled.h1 sx={{textAlign: 'center', mb: 3}}>
           {RichText.asText(article.title)}
         </Styled.h1>
-        <p sx={{fontWeight: 'bold', my: 0, pt: 0, textAlign: 'center'}}>
+        <div
+          sx={{
+            fontWeight: 'bold',
+            my: 0,
+            pt: 0,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            position: 'relative',
+          }}>
           <Styled.em
             title={formatDate(article.created)}
             aria-label={formatDate(article.created)}>
@@ -58,7 +71,42 @@ export default function Article({uid, tags, article, author, articles}) {
             <FiClock style={{marginBottom: '-0.15rem'}} />
             &nbsp;{article.read_time}&nbsp;min read
           </Styled.em>
-        </p>
+          <p sx={{m: 0}}>
+            <FiShare2
+              sx={{
+                fontSize: [3],
+                mx: 2,
+                mb: -1,
+                ':hover': {cursor: 'pointer'},
+              }}
+              title={`Share ${RichText.asText(
+                article.title
+              )} article on different platforms.`}
+              onMouseEnter={toggleShareIcons}
+              onClick={toggleShareIcons}
+            />
+            {/* Share */}
+            {showShareIcons && (
+              <div
+                sx={{
+                  position: 'absolute',
+                  mt: '-2rem',
+                  ml: '2rem',
+                  '@media screen and (max-width: 40rem)': {
+                    mt: '-2rem',
+                    ml: '2.5rem',
+                  },
+                }}
+                onMouseLeave={toggleShareIcons}>
+                <Share
+                  articleURL={URL}
+                  articleName={RichText.asText(article.title)}
+                  hideShareText={true}
+                />
+              </div>
+            )}
+          </p>
+        </div>
 
         {/* categories */}
         <div

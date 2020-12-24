@@ -13,7 +13,7 @@ const flexbox = {
   alignItems: 'start',
 }
 
-const Share = ({articleURL, articleName}) => {
+const Share = ({articleURL, articleName, hideShareText = false}) => {
   const URL = siteUrl(articleURL)
   const sharePlatforms = [
     {
@@ -35,21 +35,28 @@ const Share = ({articleURL, articleName}) => {
   ]
 
   return (
-    <div sx={{mt: 4}}>
-      <Styled.h3 sx={{textAlign: 'center'}}>
-        Share
-        <FiShare2
-          sx={{mx: 2, mb: -1}}
-          title='Share this article on different platforms.'
-        />
-      </Styled.h3>
+    <div sx={{mt: hideShareText ? 2 : 4}}>
+      {hideShareText ? null : (
+        <Styled.h3 sx={{textAlign: 'center'}}>
+          Share
+          <FiShare2
+            sx={{mx: 2, mb: -1}}
+            title='Share this article on different platforms.'
+          />
+        </Styled.h3>
+      )}
       <div sx={flexbox}>
         {sharePlatforms.map((platform, index) => {
           return (
             <Icon
               name={platform.name}
               url={platform.url}
-              style={{color: 'secondary', fontSize: [3, 4, 5], mx: 3, my: 1}}
+              style={{
+                color: 'secondary',
+                fontSize: hideShareText ? [3] : [3, 4, 5],
+                mx: 3,
+                my: 1,
+              }}
               key={index}
             />
           )
@@ -62,6 +69,7 @@ const Share = ({articleURL, articleName}) => {
 Share.propTypes = {
   articleURL: PropTypes.string,
   articleName: PropTypes.string,
+  hideShareText: PropTypes.bool,
 }
 
 export default Share
