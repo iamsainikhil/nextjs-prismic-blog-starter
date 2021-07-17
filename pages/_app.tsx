@@ -1,10 +1,12 @@
-import {ThemeProvider} from 'theme-ui'
+import { ThemeProvider } from 'theme-ui'
+import { AppProps } from 'next/app'
+
 import theme from '../utils/theme'
 import '../styles/header.scss'
 import '../styles/layout.scss'
 import '../styles/footer.scss'
 import '../styles/component.scss'
-import {initGA, trackGAEvent} from '../utils/googleAnalytics'
+import { initGA, trackGAEvent } from '../utils/googleAnalytics'
 
 // for more info on measuring app performance
 // visit https://nextjs.org/docs/advanced-features/measuring-performance
@@ -19,9 +21,9 @@ export function reportWebVitals(metric) {
   )
 }
 
-function MyApp({Component, pageProps}) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme as any}>
       <Component {...pageProps} />
     </ThemeProvider>
   )

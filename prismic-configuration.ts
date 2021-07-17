@@ -8,7 +8,7 @@ export const apiEndpoint = process.env.PRISMIC_API_URL
 export const accessToken = process.env.PRISMIC_TOKEN
 
 // Client method to query documents from the Prismic repo
-export const client = Prismic.client(apiEndpoint, {accessToken})
+export const client = Prismic.client(apiEndpoint, { accessToken })
 
 export const linkResolver = (doc) => {
   if (doc) {

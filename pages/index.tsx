@@ -5,7 +5,7 @@ import {Layout, Caption, Listing} from './../components'
 export default function Home(props) {
   return (
     <Layout>
-      <Caption type='articles' />
+      <Caption name='articles' type='articles' />
       <Listing articles={props.articles.results} />
     </Layout>
   )

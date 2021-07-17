@@ -1,5 +1,7 @@
 import React from 'react'
-import {Elements} from 'prismic-reactjs'
+import { Elements } from 'prismic-reactjs'
+
+import { linkResolver } from '../prismic-configuration'
 
 // -- Function to add unique key to props
 const propsWithUniqueKey = function (props, key) {

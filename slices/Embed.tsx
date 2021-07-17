@@ -28,16 +28,14 @@ const Embed = ({data: {primary}}) => {
   {
     if (primary.type === 'GitHub Gist') {
       return (
-        <Gist id={getGistId(primary.embed_url)} title={primary.embed_title} />
+        <Gist id={getGistId(primary.embed_url)} /*title={primary.embed_title}*/ />
       )
     }
     return (
       <Fragment>
         <iframe
           src={primary.embed_url}
-          style={iframeStyle}
-          alt={primary.embed_title}></iframe>
-
+          style={iframeStyle}></iframe>
         <p
           sx={{
             textAlign: 'center',

@@ -1,17 +1,17 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import {jsx} from 'theme-ui'
+import { jsx } from 'theme-ui'
 import PropTypes from 'prop-types'
 import {default as NextLink} from 'next/link'
-import {hrefResolver, linkResolver} from './../prismic-configuration'
-import {trackGAEvent} from '../utils/googleAnalytics'
+import { hrefResolver, linkResolver } from './../prismic-configuration'
+import { trackGAEvent } from '../utils/googleAnalytics'
 
 /**
  * @param {String} slug (ID)
  * @param {String} type (category | tag)
  * @param {String} page (fontSize will be small on listing page compared to article page)
  */
-const Chip = ({name, slug, type, page = 'article'}) => {
+const Chip = ({name, slug, type, page = 'article', onClick}) => {
   return (
     <p sx={{m: 1}}>
       <NextLink
@@ -33,7 +33,7 @@ const Chip = ({name, slug, type, page = 'article'}) => {
               backgroundColor: 'muted',
             },
           }}
-          onClick={() =>
+          onClick={onClick ? onClick() : () =>
             trackGAEvent(page, `clicked on ${name} ${type}`, 'chip click')
           }
           rel='noreferrer noopener'>

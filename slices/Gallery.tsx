@@ -1,19 +1,19 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import {Fragment, useState} from 'react'
-import {jsx, useThemeUI} from 'theme-ui'
-import Carousel, {Modal, ModalGateway} from 'react-images'
+import { Fragment, useState } from 'react'
+import { jsx, useThemeUI } from 'theme-ui'
+import Carousel, { Modal, ModalGateway } from 'react-images'
 import PropTypes from 'prop-types'
 import Image from 'next/image'
 
-const Gallery = ({data: {items}}) => {
+const Gallery = ({ data: { items } }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
-  const {theme} = useThemeUI()
+  const { theme } = useThemeUI()
   const toggleModal = () => {
     setModalIsOpen(!modalIsOpen)
   }
 
-  const images = items.map(({image}) => {
+  const images = items.map(({ image }) => {
     return {
       caption: image.alt,
       alt: image.alt,
@@ -55,8 +55,8 @@ const Gallery = ({data: {items}}) => {
         ...base,
         opacity,
         transition,
-        fontFamily: theme.fonts.body,
-        fontSize: theme.fontSizes[(3, 4)],
+        fontFamily: theme.fonts,
+        fontSize: theme.fontSizes[3][4],
       }
     },
   }
@@ -82,7 +82,7 @@ const Gallery = ({data: {items}}) => {
           overflow: 'hidden',
         }}
         onClick={toggleModal}>
-        {items && (
+        {items && items[0].image.url && (
           <Image
             src={items[0].image.url}
             alt={items[0].image.alt}

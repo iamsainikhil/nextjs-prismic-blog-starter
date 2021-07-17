@@ -1,12 +1,21 @@
-import PropTypes from 'prop-types'
 import Head from '../components/Head'
 import Header from '../components/Header'
 import Footer from './Footer'
 import {IoIosArrowDropupCircle} from 'react-icons/io'
 import siteUrl from '../utils/siteUrl'
 import routeURL from './../utils/routeURL'
+import { ReactElement } from 'react'
 
-const Layout = ({title, pathUrl, page, description, image, children}) => {
+export type LayoutProps = {
+  title?: string
+  page?: string
+  pathUrl?: string
+  description?: string
+  image?: string
+  children: ReactElement | ReactElement[]
+}
+
+const Layout = ({title, pathUrl, page, description, image, children}: LayoutProps) => {
   const URL = siteUrl(pathUrl || routeURL())
   const siteImage = image || siteUrl('/site_image.png')
   return (
@@ -34,10 +43,6 @@ const Layout = ({title, pathUrl, page, description, image, children}) => {
       </div>
     </>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout

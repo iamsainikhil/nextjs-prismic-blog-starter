@@ -1,4 +1,6 @@
+import { NextApiRequest, NextApiResponse } from 'next'
 import Prismic from 'prismic-javascript'
+
 import {linkResolver} from '../../prismic-configuration'
 
 const apiEndpoint = process.env.PRISMIC_API_URL
@@ -19,10 +21,11 @@ const createClientOptions = (req = null, prismicAccessToken = null) => {
   }
 }
 
-const Preview = async (req, res) => {
+const Preview = async (req: NextApiRequest, res: NextApiResponse) => {
   const {token: ref, documentId} = req.query
+
   const redirectUrl = await Client(req)
-    .getPreviewResolver(ref, documentId)
+    .getPreviewResolver(ref as string, documentId as string)
     .resolve(linkResolver, '/')
 
   if (!redirectUrl) {

@@ -1,9 +1,9 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import {Fragment, useState} from 'react'
-import {jsx, Styled} from 'theme-ui'
-import {client} from '../../prismic-configuration'
-import {RichText} from 'prismic-reactjs'
+import { Fragment, useState } from 'react'
+import { jsx, Styled } from 'theme-ui'
+import { client } from '../../prismic-configuration'
+import { RichText } from 'prismic-reactjs'
 import Prismic from 'prismic-javascript'
 import {
   Layout,
@@ -14,14 +14,23 @@ import {
   DisqusComments,
   RelatedArticles,
 } from '../../components'
-import {FiClock, FiShare2} from 'react-icons/fi'
+import { FiClock, FiShare2 } from 'react-icons/fi'
 import Snakke from 'react-snakke'
-import {Banner} from '../../slices'
+import { Banner } from '../../slices'
 import formatDate from '../../utils/formatDate'
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
+import { IArticle } from '../../schemas'
 
-export default function Article({uid, tags, article, author, articles}) {
-  const {asPath: URL} = useRouter()
+type ArticlePage = {
+  uid: string
+  tags: string[]
+  article: IArticle
+  author: string
+  articles: IArticle[]
+}
+
+export default function Article({ uid, tags, article, author, articles }: ArticlePage) {
+  const { asPath: URL } = useRouter()
   const [showComments, setShowComments] = useState(false)
   const [showShareIcons, setShowShareIcons] = useState(false)
   const toggleShareIcons = () => {
@@ -46,7 +55,7 @@ export default function Article({uid, tags, article, author, articles}) {
         description={RichText.asText(article.excerpt)}
         image={article.article_image.url}
         pathUrl={URL}>
-        <Styled.h1 sx={{textAlign: 'center', mb: 3}}>
+        <Styled.h1 sx={{ textAlign: 'center', mb: 3 }}>
           {RichText.asText(article.title)}
         </Styled.h1>
         <div
@@ -65,19 +74,19 @@ export default function Article({uid, tags, article, author, articles}) {
             {formatDate(article.created)}
           </Styled.em>
           <Styled.em
-            sx={{mx: 4}}
+            sx={{ mx: 4 }}
             title='Time to read the article'
             aria-label='Time to read the article'>
-            <FiClock style={{marginBottom: '-0.15rem'}} />
+            <FiClock style={{ marginBottom: '-0.15rem' }} />
             &nbsp;{article.read_time}&nbsp;min read
           </Styled.em>
-          <p sx={{m: 0}}>
+          <p sx={{ m: 0 }}>
             <FiShare2
               sx={{
                 fontSize: [3],
                 mx: 2,
                 mb: -1,
-                ':hover': {cursor: 'pointer'},
+                ':hover': { cursor: 'pointer' },
               }}
               title={`Share ${RichText.asText(
                 article.title
@@ -117,7 +126,7 @@ export default function Article({uid, tags, article, author, articles}) {
             alignItems: 'center',
             mt: 2,
           }}>
-          {article.categories.map(({slug}, index) => {
+          {article.categories.map(({ slug }, index) => {
             return (
               slug && (
                 <Chip name={slug} slug={slug} type='category' key={index} />
@@ -141,7 +150,7 @@ export default function Article({uid, tags, article, author, articles}) {
         {/* slices */}
         <SliceMachine slices={article.body} />
 
-        <Styled.em sx={{color: 'gray'}}>
+        <Styled.em sx={{ color: 'gray' }}>
           This article was last updated on {formatDate(article.modified)}
         </Styled.em>
 
@@ -171,7 +180,7 @@ export default function Article({uid, tags, article, author, articles}) {
           related={articles}
         />
 
-        <p style={{textAlign: 'center'}}>
+        <p style={{ textAlign: 'center' }}>
           <button
             onClick={toggleComments}
             sx={{
@@ -198,7 +207,7 @@ export default function Article({uid, tags, article, author, articles}) {
 
         {/* Disqus comments */}
         {showComments ? (
-          <div sx={{mt: 4}}>
+          <div sx={{ mt: 4 }}>
             <DisqusComments
               slug={uid}
               title={RichText.asText(article.title)}
@@ -214,29 +223,32 @@ export default function Article({uid, tags, article, author, articles}) {
 export async function getStaticProps({
   params,
   preview = null,
-  previewData = {},
+  previewData,
 }) {
-  const {uid} = params
-  const {ref} = previewData
-  const {tags, data: article} = await client.getByUID(
+  const { uid } = params
+  let ref = undefined
+  if (previewData) {
+    ref = previewData.ref
+  }
+  const { tags, data: article } = await client.getByUID(
     'article',
     uid,
-    ref ? {ref} : null
+    ref ? { ref } : null
   )
   // get authorID
   const authorId = await article?.author?.id
   // fetch author data based on authorId
-  const {data: author} = await client.getByID(authorId, ref ? {ref} : null)
-  const {results: articles} = await client.query(
+  const { data: author } = await client.getByID(authorId, ref ? { ref } : null)
+  const { results: articles } = await client.query(
     Prismic.Predicates.at('document.type', 'article')
   )
   return {
-    props: {uid, tags, article, author, articles, preview},
+    props: { uid, tags, article, author, articles, preview },
   }
 }
 
 export async function getStaticPaths() {
-  const {results} = await client.query(
+  const { results } = await client.query(
     Prismic.Predicates.at('document.type', 'article')
   )
 
@@ -244,11 +256,12 @@ export async function getStaticPaths() {
     return {
       params: {
         uid: article.uid,
-      },
+      }
     }
   })
+
   return {
     paths,
-    fallback: false,
+    fallback: false
   }
 }

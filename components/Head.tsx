@@ -1,5 +1,15 @@
 import NextHead from 'next/head'
 import GoogleFonts from 'next-google-fonts'
+import { ReactElement } from 'react'
+
+export type HeadProps = {
+  children?: ReactElement
+  pathUrl: string
+  page: string
+  title: string
+  description: string
+  image: string
+}
 
 const Head = ({
   children,
@@ -8,7 +18,7 @@ const Head = ({
   title = 'Blog',
   description,
   image,
-}) => {
+}: HeadProps) => {
   const prismicRepo = process.env.NEXT_PUBLIC_PRISMIC_REPO
   const twitterHandle = '@iamsainikhil12'
   const siteName = 'NextJS Prismic Blog Starter'

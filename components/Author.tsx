@@ -1,11 +1,11 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import {jsx} from 'theme-ui'
+import { jsx } from 'theme-ui'
 import PropTypes from 'prop-types'
 import Icon from './Icon'
 import Image from 'next/image'
-import {RichText} from 'prismic-reactjs'
-import {linkResolver} from '../prismic-configuration'
+import { RichText } from 'prismic-reactjs'
+import { linkResolver } from '../prismic-configuration'
 import htmlSerializer from '../utils/htmlSerializer'
 
 const flexbox = {
@@ -22,7 +22,7 @@ const grid = {
   gridGap: '1rem',
 }
 
-const Author = ({author}) => {
+const Author = ({ author }) => {
   return (
     <div
       sx={{
@@ -34,15 +34,18 @@ const Author = ({author}) => {
         borderColor: 'shade2',
         borderRadius: '1rem',
       }}>
-      <Image
-        src={author.avatar.url}
-        alt={author.avatar.alt}
-        title={author.avatar.alt}
-        layout='fixed'
-        width='100'
-        height='100'
-        className='author-avatar'
-      />
+      {
+        (author.avatar.url) ?
+          (<Image
+            src={author.avatar.url}
+            alt={author.avatar.alt}
+            title={author.avatar.alt}
+            layout='fixed'
+            width='100'
+            height='100'
+            className='author-avatar'
+          />) : undefined
+      }
       <div>
         <h3
           sx={{
@@ -52,14 +55,14 @@ const Author = ({author}) => {
           {author.name}
         </h3>
         <RichText render={author.bio} htmlSerializer={htmlSerializer} />
-        <div sx={{...flexbox, mt: -1}}>
+        <div sx={{ ...flexbox, mt: -1 }}>
           {author.social_links.map((platform, index) => {
             return (
-              <div key={index} sx={{mx: 2, my: 1}}>
+              <div key={index} sx={{ mx: 2, my: 1 }}>
                 <Icon
                   name={platform.platform_name}
                   url={platform.platform_url}
-                  style={{color: 'secondary', fontSize: [2, 3, 4]}}
+                  style={{ color: 'secondary', fontSize: [2, 3, 4] }}
                 />
               </div>
             )

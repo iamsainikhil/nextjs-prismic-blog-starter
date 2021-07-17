@@ -1,10 +1,10 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import {jsx} from 'theme-ui'
+import { jsx } from 'theme-ui'
 import Image from 'next/image'
 import PropTypes from 'prop-types'
 
-const Banner = ({image: {alt, url, dimensions}}) => {
+const Banner = ({ image: { alt, url, dimensions } }) => {
   return (
     <div
       sx={{
@@ -17,14 +17,18 @@ const Banner = ({image: {alt, url, dimensions}}) => {
         borderColor: 'highlight',
         overflow: 'hidden',
       }}>
-      <Image
-        src={url}
-        alt={alt}
-        title={alt}
-        layout='responsive'
-        width={dimensions.width}
-        height={dimensions.height}
-      />
+
+      {
+        (url && dimensions?.width) ?
+          (<Image
+            src={url}
+            alt={alt}
+            title={alt}
+            layout='responsive'
+            width={dimensions.width}
+            height={dimensions.height}
+          />) : undefined
+      }
 
       <p
         sx={{
