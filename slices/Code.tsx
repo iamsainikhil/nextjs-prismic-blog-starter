@@ -2,13 +2,14 @@ import {useState, Fragment} from 'react'
 import Highlight, {defaultProps} from 'prism-react-renderer'
 import light from 'prism-react-renderer/themes/github'
 import dark from 'prism-react-renderer/themes/vsDark'
-import {useThemeUI} from 'theme-ui'
 import styled from '@emotion/styled'
 
 /* copy to clipboard UI/UX */
 import {CopyToClipboard} from 'react-copy-to-clipboard'
 import {ToastContainer, toast, Slide} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+
+import { useTheme } from '../utils/theme'
 
 /**
  * You can customize the code syntax style using prism themes
@@ -22,7 +23,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import {RichText} from 'prismic-reactjs'
 
 const Code = ({data: {primary}}) => {
-  const {theme, colorMode} = useThemeUI()
+  const {theme, colorMode} = useTheme()
   const [copied, setCopied] = useState(false)
 
   /**

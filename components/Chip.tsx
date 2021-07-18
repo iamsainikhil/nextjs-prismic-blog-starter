@@ -1,17 +1,23 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
+/** @jsxImportSource theme-ui */
 import PropTypes from 'prop-types'
 import {default as NextLink} from 'next/link'
 import { hrefResolver, linkResolver } from './../prismic-configuration'
 import { trackGAEvent } from '../utils/googleAnalytics'
+
+type ChipProps = {
+  name: string
+  slug: string
+  type: string
+  page?: string
+  onClick?: Function
+}
 
 /**
  * @param {String} slug (ID)
  * @param {String} type (category | tag)
  * @param {String} page (fontSize will be small on listing page compared to article page)
  */
-const Chip = ({name, slug, type, page = 'article', onClick}) => {
+const Chip = ({name, slug, type, page = 'article', onClick}: ChipProps) => {
   return (
     <p sx={{m: 1}}>
       <NextLink

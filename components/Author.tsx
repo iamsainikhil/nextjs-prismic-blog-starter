@@ -1,12 +1,14 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
-import PropTypes from 'prop-types'
-import Icon from './Icon'
+/** @jsxImportSource theme-ui */
 import Image from 'next/image'
 import { RichText } from 'prismic-reactjs'
-import { linkResolver } from '../prismic-configuration'
+
+import Icon from './Icon'
 import htmlSerializer from '../utils/htmlSerializer'
+import { IAuthor } from '../schemas'
+
+type AuthorProps = {
+  author: IAuthor
+}
 
 const flexbox = {
   display: 'flex',
@@ -22,7 +24,7 @@ const grid = {
   gridGap: '1rem',
 }
 
-const Author = ({ author }) => {
+const Author = ({ author }: AuthorProps) => {
   return (
     <div
       sx={{
@@ -71,10 +73,6 @@ const Author = ({ author }) => {
       </div>
     </div>
   )
-}
-
-Author.propTypes = {
-  author: PropTypes.object,
 }
 
 export default Author

@@ -23,7 +23,7 @@ export function reportWebVitals(metric) {
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={theme as any}>
+    <ThemeProvider theme={theme}>
       <Component {...pageProps} />
     </ThemeProvider>
   )

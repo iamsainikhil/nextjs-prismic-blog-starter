@@ -1,6 +1,4 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import {jsx} from 'theme-ui'
+/** @jsxImportSource theme-ui */
 import dynamic from 'next/dynamic'
 import Loader from '../components/Loader'
 const Layout = dynamic(() => import('../components/Layout'), {

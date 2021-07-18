@@ -1,14 +1,14 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 import { Fragment, useState } from 'react'
-import { jsx, useThemeUI } from 'theme-ui'
 import Carousel, { Modal, ModalGateway } from 'react-images'
 import PropTypes from 'prop-types'
 import Image from 'next/image'
 
+import { useTheme } from '../utils/theme'
+
 const Gallery = ({ data: { items } }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
-  const { theme } = useThemeUI()
+  const { theme } = useTheme()
   const toggleModal = () => {
     setModalIsOpen(!modalIsOpen)
   }
@@ -55,8 +55,8 @@ const Gallery = ({ data: { items } }) => {
         ...base,
         opacity,
         transition,
-        fontFamily: theme.fonts,
-        fontSize: theme.fontSizes[3][4],
+        fontFamily: theme.fonts.body,
+        fontSize: theme.fontSizes[3],
       }
     },
   }
@@ -66,7 +66,7 @@ const Gallery = ({ data: { items } }) => {
       <ModalGateway>
         {modalIsOpen ? (
           <Modal onClose={toggleModal}>
-            <Carousel views={images} styles={galleryStyles} />
+            <Carousel views={images} styles={galleryStyles as any} />
           </Modal>
         ) : null}
       </ModalGateway>

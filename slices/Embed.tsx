@@ -1,7 +1,5 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 import {Fragment} from 'react'
-import {jsx} from 'theme-ui'
 import Gist from 'react-gist'
 import PropTypes from 'prop-types'
 

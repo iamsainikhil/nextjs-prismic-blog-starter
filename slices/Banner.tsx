@@ -1,6 +1,4 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { jsx } from 'theme-ui'
+/** @jsxImportSource theme-ui */
 import Image from 'next/image'
 import PropTypes from 'prop-types'
 

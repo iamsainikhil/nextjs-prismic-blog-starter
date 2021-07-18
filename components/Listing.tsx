@@ -1,6 +1,4 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { jsx, useThemeUI } from 'theme-ui'
+/** @jsxImportSource theme-ui */
 import { default as NextLink } from 'next/link'
 import { hrefResolver, linkResolver } from './../prismic-configuration'
 import Image from 'next/image'
@@ -10,6 +8,7 @@ import { FiClock } from 'react-icons/fi'
 import formatDate from '../utils/formatDate'
 import Chip from './Chip'
 import { trackGAEvent } from '../utils/googleAnalytics'
+import { useTheme } from '../utils/theme'
 import { IArticle } from '../schemas'
 
 /**
@@ -24,7 +23,7 @@ const truncateText = (text) => {
 }
 
 const Listing = ({ articles }: { articles: { uid: string, data: IArticle }[]}) => {
-  const { theme } = useThemeUI()
+  const { theme } = useTheme()
 
   const GridLayout = styled.div`
     display: grid;
@@ -165,17 +164,17 @@ const Listing = ({ articles }: { articles: { uid: string, data: IArticle }[]}) =
                 alignItems: 'center',
                 margin: '0 auto 0 -0.25rem',
               }}>
-              {article.data.categories.map(({ slug }, index) => {
+              {article.data.categories && article.data.categories.map(({ category }, index) => {
                 return (
-                  slug && (
+                  category?.slug && (
                     <Chip
-                      name={slug}
-                      slug={slug}
+                      name={category.slug}
+                      slug={category.slug}
                       type='category'
                       page='listing'
                       key={index}
                       onClick={() =>
-                        trackGAEvent('home', `clicked on ${slug}`, 'chip click')
+                        trackGAEvent('home', `clicked on ${category.slug}`, 'chip click')
                       }
                     />
                   )

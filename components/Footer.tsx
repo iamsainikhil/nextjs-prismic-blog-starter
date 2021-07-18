@@ -1,6 +1,4 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import {jsx} from 'theme-ui'
+/** @jsxImportSource theme-ui */
 import {SiNextDotJs} from 'react-icons/si'
 import {FaHeart} from 'react-icons/fa'
 import Icon from './Icon'

@@ -1,10 +1,9 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import {jsx, Styled} from 'theme-ui'
+/** @jsxImportSource theme-ui */
 import PropTypes from 'prop-types'
 import Icon from './Icon'
 import {FiShare2} from 'react-icons/fi'
 import siteUrl from '../utils/siteUrl'
+import { Themed } from 'theme-ui'
 
 const flexbox = {
   display: 'flex',
@@ -37,13 +36,13 @@ const Share = ({articleURL, articleName, hideShareText = false}) => {
   return (
     <div sx={{mt: hideShareText ? 2 : 4}}>
       {hideShareText ? null : (
-        <Styled.h3 sx={{textAlign: 'center'}}>
+        <Themed.h3 sx={{textAlign: 'center'}}>
           Share
           <FiShare2
             sx={{mx: 2, mb: -1}}
             title='Share this article on different platforms.'
           />
-        </Styled.h3>
+        </Themed.h3>
       )}
       <div sx={flexbox}>
         {sharePlatforms.map((platform, index) => {

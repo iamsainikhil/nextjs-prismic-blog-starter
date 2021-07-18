@@ -1,7 +1,17 @@
-export default {
-  useBodyStyles: true,
+import { Theme, ThemeUIContextValue, useThemeUI } from "theme-ui"
+
+const makeTheme = <T extends Theme>(t: T) => t
+
+export type ThemeType = typeof theme
+
+interface ThemeContextValue extends Omit<ThemeUIContextValue, 'theme'> {
+  theme: ThemeType
+}
+
+export const useTheme = (useThemeUI as unknown) as () => ThemeContextValue
+
+const theme = makeTheme({
   useCustomProperties: true,
-  initialColorMode: 'dark',
   useColorSchemeMediaQuery: true,
   useLocalStorage: true,
   breakpoints: ['30em', '47em', '64em', '100em'],
@@ -80,8 +90,9 @@ export default {
       lineHeight: 'heading',
     },
     medium: {
-      variant: 'medium',
+      fontFamily: 'medium',
       fontWeight: 'medium',
+      lineHeight: 'heading',
     },
     heading: {
       fontFamily: 'heading',
@@ -232,4 +243,6 @@ export default {
       },
     },
   },
-}
+})
+
+export default theme

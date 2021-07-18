@@ -1,6 +1,6 @@
-import {client} from '../../prismic-configuration'
+import { client } from '../../prismic-configuration'
 import Prismic from 'prismic-javascript'
-import {Layout, Caption, Listing} from './../../components'
+import { Layout, Caption, Listing } from './../../components'
 
 export default function Category({articles, category}) {
   return (
@@ -19,7 +19,7 @@ export async function getStaticProps({params}) {
 
   // filter articles based on the category slug
   const articles = results.filter(({data}) => {
-    const categories = data.categories.map(({slug}) => slug)
+    const categories = data.categories.map(({category}) => category.slug)
     return categories.includes(category)
   })
 
@@ -41,9 +41,9 @@ export async function getStaticPaths() {
     []
   )
 
-  const paths = categories.map(({slug}) => ({
+  const paths = categories.map(({category}) => ({
     params: {
-      category: slug,
+      category: category.slug,
     },
   }))
 

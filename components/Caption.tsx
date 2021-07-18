@@ -1,11 +1,10 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import {jsx, Styled} from 'theme-ui'
+/** @jsxImportSource theme-ui */
+import { Themed } from "theme-ui"
 
 const Caption = ({name, type}) => {
   return (
     <div style={{textAlign: 'center'}}>
-      <Styled.p
+      <Themed.p
         sx={{
           fontFamily: 'light',
           fontSize: [2, 3, 4],
@@ -13,16 +12,16 @@ const Caption = ({name, type}) => {
           mt: 0,
         }}>
         {type === 'articles' ? (
-          <Styled.em>
+          <Themed.em>
             Dive into many interesting articles related to Web Development,
             Software Tools, Tips&nbsp;&&nbsp;Tricks,&nbsp;etc.
-          </Styled.em>
+          </Themed.em>
         ) : (
-          <Styled.em>
+          <Themed.em>
             The articles related to <strong>{name}</strong> {type}.
-          </Styled.em>
+          </Themed.em>
         )}
-      </Styled.p>
+      </Themed.p>
     </div>
   )
 }

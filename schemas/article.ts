@@ -11,8 +11,10 @@ export interface IArticle {
   excerpt: RichTextBlock[]
   read_time: string
   article_image: IImage
-  body: string
-  categories: IArticleCategory[]
+  body: RichTextBlock[]
+  categories: {
+    category: IArticleCategory
+  }[]
 }
 
 export interface IArticleCategory extends ICategory {

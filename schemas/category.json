@@ -1,5 +1,12 @@
 {
   "Main": {
+    "slug": {
+      "type": "Text",
+      "config": {
+        "label": "slug",
+        "placeholder": "Category Slug"
+      }
+    },
     "name": {
       "type": "Text",
       "config": {

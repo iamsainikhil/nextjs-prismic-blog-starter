@@ -1,7 +1,5 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
+/** @jsxImportSource theme-ui */
 import { Fragment, useState } from 'react'
-import { jsx, Styled } from 'theme-ui'
 import { client } from '../../prismic-configuration'
 import { RichText } from 'prismic-reactjs'
 import Prismic from 'prismic-javascript'
@@ -19,13 +17,14 @@ import Snakke from 'react-snakke'
 import { Banner } from '../../slices'
 import formatDate from '../../utils/formatDate'
 import { useRouter } from 'next/router'
-import { IArticle } from '../../schemas'
+import { IArticle, IAuthor } from '../../schemas'
+import { Themed } from 'theme-ui'
 
 type ArticlePage = {
   uid: string
   tags: string[]
   article: IArticle
-  author: string
+  author: IAuthor
   articles: IArticle[]
 }
 
@@ -55,9 +54,9 @@ export default function Article({ uid, tags, article, author, articles }: Articl
         description={RichText.asText(article.excerpt)}
         image={article.article_image.url}
         pathUrl={URL}>
-        <Styled.h1 sx={{ textAlign: 'center', mb: 3 }}>
+        <Themed.h1 sx={{ textAlign: 'center', mb: 3 }}>
           {RichText.asText(article.title)}
-        </Styled.h1>
+        </Themed.h1>
         <div
           sx={{
             fontWeight: 'bold',
@@ -68,18 +67,18 @@ export default function Article({ uid, tags, article, author, articles }: Articl
             justifyContent: 'center',
             position: 'relative',
           }}>
-          <Styled.em
+          <Themed.em
             title={formatDate(article.created)}
             aria-label={formatDate(article.created)}>
             {formatDate(article.created)}
-          </Styled.em>
-          <Styled.em
+          </Themed.em>
+          <Themed.em
             sx={{ mx: 4 }}
             title='Time to read the article'
             aria-label='Time to read the article'>
             <FiClock style={{ marginBottom: '-0.15rem' }} />
             &nbsp;{article.read_time}&nbsp;min read
-          </Styled.em>
+          </Themed.em>
           <p sx={{ m: 0 }}>
             <FiShare2
               sx={{
@@ -126,16 +125,16 @@ export default function Article({ uid, tags, article, author, articles }: Articl
             alignItems: 'center',
             mt: 2,
           }}>
-          {article.categories.map(({ slug }, index) => {
+          {article.categories.map(({ category }, index) => {
             return (
-              slug && (
-                <Chip name={slug} slug={slug} type='category' key={index} />
+              category?.slug && (
+                <Chip name={category.slug} slug={category.slug} type='category' key={index} />
               )
             )
           })}
         </div>
 
-        <Styled.p
+        <Themed.p
           sx={{
             my: 4,
             display: 'flex',
@@ -143,16 +142,16 @@ export default function Article({ uid, tags, article, author, articles }: Articl
             alignItems: 'center',
           }}>
           {RichText.asText(article.excerpt)}
-        </Styled.p>
+        </Themed.p>
 
         <Banner image={article.article_image} />
 
         {/* slices */}
         <SliceMachine slices={article.body} />
 
-        <Styled.em sx={{ color: 'gray' }}>
+        <Themed.em sx={{ color: 'gray' }}>
           This article was last updated on {formatDate(article.modified)}
-        </Styled.em>
+        </Themed.em>
 
         {/* tags */}
         <div

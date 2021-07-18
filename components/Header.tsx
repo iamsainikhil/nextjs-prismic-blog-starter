@@ -1,21 +1,23 @@
 import {default as NextLink} from 'next/link'
 import Headroom from 'react-headroom'
-import {Styled, useThemeUI} from 'theme-ui'
 // import { GoSearch } from "react-icons/go"
 import {FiSun, FiMoon} from 'react-icons/fi'
+
+import {useTheme} from '../utils/theme'
 import {trackGAEvent} from '../utils/googleAnalytics'
+import { Themed } from 'theme-ui'
 
 const Header = () => {
-  const {theme, colorMode, setColorMode} = useThemeUI()
+  const {theme, colorMode, setColorMode} = useTheme()
 
   return (
     <Headroom disableInlineStyles upTolerance={10} downTolerance={10}>
       <header style={{background: `${theme.colors.muted}`}} className='header'>
         <div className='header-content'>
           <div>
-            <Styled.h1 style={{margin: '0'}}>
+            <Themed.h1 style={{margin: '0'}}>
               <NextLink href='/' passHref>
-                <Styled.a
+                <Themed.a
                   style={{
                     textDecoration: 'none',
                     fontFamily: 'Damion',
@@ -26,16 +28,18 @@ const Header = () => {
                   }
                   rel='noreferrer noopener'>
                   Blog
-                </Styled.a>
+                </Themed.a>
               </NextLink>
-            </Styled.h1>
+            </Themed.h1>
           </div>
           <div className='header-links'>
-            {/* <Styled.h2 style={{ margin: "0 1rem" }}>
-              <Styled.a as={Link} to="/">
-                Tags
-              </Styled.a>
-            </Styled.h2> */}
+            <Themed.h2 style={{ margin: "0 1rem" }}>
+              <NextLink href='/tag' passHref>
+                <Themed.a>
+                  Tags
+                </Themed.a>
+              </NextLink>
+            </Themed.h2>
             {/* <p>
               <GoSearch
                 title="Search"
