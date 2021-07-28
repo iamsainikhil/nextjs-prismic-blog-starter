@@ -6,6 +6,7 @@ import '../styles/header.scss'
 import '../styles/layout.scss'
 import '../styles/footer.scss'
 import '../styles/component.scss'
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { initGA, trackGAEvent } from '../utils/googleAnalytics'
 
 // for more info on measuring app performance

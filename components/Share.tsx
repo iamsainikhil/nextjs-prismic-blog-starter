@@ -1,18 +1,17 @@
-/** @jsxImportSource theme-ui */
-import PropTypes from 'prop-types'
-import Icon from './Icon'
 import {FiShare2} from 'react-icons/fi'
-import siteUrl from '../utils/siteUrl'
 import { Themed } from 'theme-ui'
 
-const flexbox = {
-  display: 'flex',
-  flexFlow: 'row wrap',
-  justifyContent: 'center',
-  alignItems: 'start',
+import Icon from './Icon'
+import siteUrl from '../utils/siteUrl'
+
+interface ShareProps {
+  articleURL: string,
+  articleName: string,
+  hideShareText?: boolean,
 }
 
-const Share = ({articleURL, articleName, hideShareText = false}) => {
+
+const Share = ({articleURL, articleName, hideShareText = false}: ShareProps) => {
   const URL = siteUrl(articleURL)
   const sharePlatforms = [
     {
@@ -45,7 +44,7 @@ const Share = ({articleURL, articleName, hideShareText = false}) => {
         </Themed.h3>
       )}
       <div sx={flexbox}>
-        {sharePlatforms.map((platform, index) => {
+        {sharePlatforms && sharePlatforms.map((platform, index) => {
           return (
             <Icon
               name={platform.name}
@@ -65,10 +64,11 @@ const Share = ({articleURL, articleName, hideShareText = false}) => {
   )
 }
 
-Share.propTypes = {
-  articleURL: PropTypes.string,
-  articleName: PropTypes.string,
-  hideShareText: PropTypes.bool,
+const flexbox = {
+  display: 'flex',
+  flexFlow: 'row wrap',
+  justifyContent: 'center',
+  alignItems: 'start',
 }
 
 export default Share

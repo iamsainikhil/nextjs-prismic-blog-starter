@@ -1,5 +1,5 @@
 import {useState, Fragment} from 'react'
-import Highlight, {defaultProps} from 'prism-react-renderer'
+import Highlight, {defaultProps, Language} from 'prism-react-renderer'
 import light from 'prism-react-renderer/themes/github'
 import dark from 'prism-react-renderer/themes/vsDark'
 import styled from '@emotion/styled'
@@ -8,8 +8,6 @@ import styled from '@emotion/styled'
 import {CopyToClipboard} from 'react-copy-to-clipboard'
 import {ToastContainer, toast, Slide} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
-import { useTheme } from '../utils/theme'
 
 /**
  * You can customize the code syntax style using prism themes
@@ -20,9 +18,21 @@ import { useTheme } from '../utils/theme'
  * then remove light & dark themes from prism-react-rendered
  */
 // import "../styles/prism-theme.css"
-import {RichText} from 'prismic-reactjs'
+import {RichText, RichTextBlock} from 'prismic-reactjs'
 
-const Code = ({data: {primary}}) => {
+import { useTheme } from '../utils/theme'
+
+interface CodeProps {
+  data: {
+    primary: {
+      type: string
+      lang: Language
+      code: RichTextBlock
+    }
+  }
+}
+
+const Code = ({data: {primary}}: CodeProps) => {
   const {theme, colorMode} = useTheme()
   const [copied, setCopied] = useState(false)
 
@@ -66,7 +76,7 @@ const Code = ({data: {primary}}) => {
       <Highlight
         {...defaultProps}
         theme={colorMode === 'light' ? light : dark}
-        code={RichText.asText(primary.code)}
+        code={RichText.asText([primary.code])}
         language={primary.lang}>
         {({className, style, tokens, getLineProps, getTokenProps}) => (
           <pre
@@ -97,9 +107,9 @@ const Code = ({data: {primary}}) => {
                 {copied ? <span>Copied</span> : <Button>Copy</Button>}
               </CopyToClipboard>
             </div>
-            {tokens.map((line, i) => (
+            {tokens && tokens.map((line, i) => (
               <div {...getLineProps({line, key: i})}>
-                {line.map((token, key) => (
+                {line && line.map((token, key) => (
                   <span {...getTokenProps({token, key})} />
                 ))}
               </div>

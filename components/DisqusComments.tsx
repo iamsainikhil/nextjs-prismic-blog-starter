@@ -1,9 +1,14 @@
-/** @jsxImportSource theme-ui */
-import PropTypes from 'prop-types'
 import {DiscussionEmbed} from 'disqus-react'
+
 import siteUrl from '../utils/siteUrl'
 
-const DisqusComments = ({slug, title, pathname}) => {
+interface DisqusCommentsProps {
+  slug: string,
+  title: string,
+  pathname: string,
+}
+
+const DisqusComments = ({slug, title, pathname}: DisqusCommentsProps) => {
   const disqusShortname = process.env.NEXT_PUBLIC_DISQUS_NAME
   let disqusConfig = {
     url: siteUrl(pathname),
@@ -15,12 +20,6 @@ const DisqusComments = ({slug, title, pathname}) => {
       <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
     </div>
   )
-}
-
-DisqusComments.propTypes = {
-  slug: PropTypes.string,
-  title: PropTypes.string,
-  pathname: PropTypes.string,
 }
 
 export default DisqusComments

@@ -1,6 +1,6 @@
-/** @jsxImportSource theme-ui */
 import PropTypes from 'prop-types'
 import {default as NextLink} from 'next/link'
+
 import { hrefResolver, linkResolver } from './../prismic-configuration'
 import { trackGAEvent } from '../utils/googleAnalytics'
 

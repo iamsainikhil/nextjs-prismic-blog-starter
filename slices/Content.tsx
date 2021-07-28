@@ -1,11 +1,19 @@
-/** @jsxImportSource theme-ui */
-import {RichText} from 'prismic-reactjs'
+import {RichText, RichTextBlock} from 'prismic-reactjs'
 import htmlSerializer from '../utils/htmlSerializer'
 
-const Content = ({data: {primary}}) => {
+interface ContentProps {
+  data: {
+    primary: {
+      type: string
+      content: RichTextBlock
+    }
+  }
+}
+
+const Content = ({data: {primary}}: ContentProps) => {
   return (
     <div sx={{variant: 'styles', mt: 4}}>
-      <RichText render={primary.content} htmlSerializer={htmlSerializer} />
+      <RichText render={primary.content as any} htmlSerializer={htmlSerializer} />
     </div>
   )
 }

@@ -1,4 +1,4 @@
-const siteUrl = (slug: string) => {
+const siteUrl = (slug: string):string => {
   const url =
     process.env.NODE_ENV === 'production'
       ? process.env.NEXT_PUBLIC_SITE_URL || '/'

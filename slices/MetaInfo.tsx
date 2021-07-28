@@ -1,9 +1,13 @@
-/** @jsxImportSource theme-ui */
-import PropTypes from 'prop-types'
 import Image from 'next/image'
-import {RichText} from 'prismic-reactjs'
+import { RichText } from 'prismic-reactjs'
 
-const MetaInfo = ({meta}) => {
+import { IArticleMeta } from '../schemas'
+
+interface MetaInfoProps {
+  meta: IArticleMeta
+}
+
+const MetaInfo = ({meta}: MetaInfoProps) => {
   return (
     <div
       sx={{
@@ -48,23 +52,6 @@ const MetaInfo = ({meta}) => {
       </div>
     </div>
   )
-}
-
-MetaInfo.defaultProps = {
-  meta: {
-    website_title: '',
-    website_image: {
-      alt: '',
-      fluid: null,
-      url: '',
-    },
-    website_description: '',
-    website_url: '',
-  },
-}
-
-MetaInfo.propTypes = {
-  meta: PropTypes.object,
 }
 
 export default MetaInfo

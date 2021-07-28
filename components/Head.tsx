@@ -1,5 +1,5 @@
 import NextHead from 'next/head'
-import GoogleFonts from 'next-google-fonts'
+import { GoogleFonts } from 'next-google-fonts'
 import { ReactElement } from 'react'
 
 export type HeadProps = {
@@ -85,4 +85,5 @@ const Head = ({
     </>
   )
 }
+
 export default Head

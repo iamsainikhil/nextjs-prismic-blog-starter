@@ -1,8 +1,13 @@
-/** @jsxImportSource theme-ui */
 import Image from 'next/image'
 import PropTypes from 'prop-types'
 
-const Banner = ({ image: { alt, url, dimensions } }) => {
+import { IImage } from '../schemas'
+
+interface BannerProps {
+  image: IImage
+}
+
+const Banner = ({ image: { alt, url, dimensions } }: BannerProps) => {
   return (
     <div
       sx={{

@@ -1,7 +1,11 @@
-/** @jsxImportSource theme-ui */
 import { Themed } from "theme-ui"
 
-const Caption = ({name, type}) => {
+interface CaptionProps {
+  name: string
+  type: string
+}
+
+const Caption = ({name, type}: CaptionProps) => {
   return (
     <div style={{textAlign: 'center'}}>
       <Themed.p

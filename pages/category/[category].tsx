@@ -19,7 +19,7 @@ export async function getStaticProps({params}) {
 
   // filter articles based on the category slug
   const articles = results.filter(({data}) => {
-    const categories = data.categories.map(({category}) => category.slug)
+    const categories = data.categories && data.categories.map(({category}) => category.slug)
     return categories.includes(category)
   })
 
@@ -36,10 +36,10 @@ export async function getStaticPaths() {
     Prismic.Predicates.at('document.type', 'article')
   )
 
-  const categories = results.reduce(
+  const categories = results && results.reduce(
     (acc, curr) => acc.concat(curr.data.categories),
     []
-  )
+  ) || []
 
   const paths = categories.map(({category}) => ({
     params: {

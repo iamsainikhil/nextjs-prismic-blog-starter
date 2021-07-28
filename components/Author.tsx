@@ -1,4 +1,3 @@
-/** @jsxImportSource theme-ui */
 import Image from 'next/image'
 import { RichText } from 'prismic-reactjs'
 
@@ -58,7 +57,7 @@ const Author = ({ author }: AuthorProps) => {
         </h3>
         <RichText render={author.bio} htmlSerializer={htmlSerializer} />
         <div sx={{ ...flexbox, mt: -1 }}>
-          {author.social_links.map((platform, index) => {
+          {author.social_links && author.social_links.map((platform, index) => {
             return (
               <div key={index} sx={{ mx: 2, my: 1 }}>
                 <Icon

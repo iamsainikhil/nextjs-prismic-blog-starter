@@ -1,4 +1,6 @@
 import { ReactElement } from 'react'
+
+import { ISlice } from '../schemas'
 import {
   Quote,
   Content,
@@ -11,13 +13,13 @@ import {
 } from '../slices'
 
 export interface SliceMachineProps {
-  slices?: any[]
+  slices?: ISlice[]
 }
 
 const SliceMachine = ({slices}: SliceMachineProps): ReactElement => {
   return (<>
     {
-      slices.map((slice, index) => {
+      slices && slices.map((slice, index) => {
         if (!slice) return null
         switch (slice.slice_type) {
           case 'content':

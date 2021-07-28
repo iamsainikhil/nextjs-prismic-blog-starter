@@ -1,8 +1,16 @@
-/** @jsxImportSource theme-ui */
-import {RichText} from 'prismic-reactjs'
+import {RichText, RichTextBlock} from 'prismic-reactjs'
 import htmlSerializer from '../utils/htmlSerializer'
 
-const Alert = ({data: {primary}}) => {
+interface AlertProps {
+  data: {
+    primary: {
+      type: string
+      content: RichTextBlock[]
+    }
+  }
+}
+
+const Alert = ({data: {primary}}: AlertProps) => {
   return (
     <div
       sx={{

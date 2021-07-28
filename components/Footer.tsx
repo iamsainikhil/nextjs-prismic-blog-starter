@@ -1,6 +1,6 @@
-/** @jsxImportSource theme-ui */
 import {SiNextDotJs} from 'react-icons/si'
 import {FaHeart} from 'react-icons/fa'
+
 import Icon from './Icon'
 import {trackGAEvent} from '../utils/googleAnalytics'
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { Elements } from 'prismic-reactjs'
 
 import { linkResolver } from '../prismic-configuration'
@@ -9,7 +9,7 @@ const propsWithUniqueKey = function (props, key) {
 }
 
 // -- HTML Serializer
-const htmlSerializer = function (type, element, content, children, key) {
+const htmlSerializer = function (type, element, content, children, key): ReactNode {
   var props = {}
 
   switch (type) {
@@ -134,7 +134,7 @@ const htmlSerializer = function (type, element, content, children, key) {
       )
 
     case Elements.span: // Span
-      if (content) {
+      if (content && Array.isArray(content.split('\n'))) {
         return content.split('\n').reduce((acc, p) => {
           if (acc.length === 0) {
             return [p]

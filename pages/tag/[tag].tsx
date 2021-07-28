@@ -29,7 +29,7 @@ export async function getStaticPaths() {
     Prismic.Predicates.at('document.type', 'article')
   )
 
-  const tags = results.reduce((acc, curr) => acc.concat(curr.tags), [])
+  const tags = results && results.reduce((acc, curr) => acc.concat(curr.tags), []) || []
 
   const paths = tags.map((tag) => ({
     params: {

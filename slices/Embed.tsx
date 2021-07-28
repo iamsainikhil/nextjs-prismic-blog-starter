@@ -1,28 +1,18 @@
-/** @jsxImportSource theme-ui */
 import {Fragment} from 'react'
 import Gist from 'react-gist'
-import PropTypes from 'prop-types'
 
-const iframeStyle = {
-  minWidth: '200px',
-  minHeight: '500px',
-  width: '100%',
-  height: '100%',
-  border: '0',
-  borderRadius: '4px',
-  overflow: 'auto',
-  margin: '1rem auto',
+interface EmbedProps {
+  data: {
+    primary: {
+      type: string
+      embed_url: string
+      embed_title: string
+    }
+  }
 }
 
-/**
- * return the ID part of the URL
- * @param {*} url
- */
-const getGistId = (url) => {
-  return url.split('/').slice(-1).join('')
-}
 
-const Embed = ({data: {primary}}) => {
+const Embed = ({data: {primary}}: EmbedProps) => {
   {
     if (primary.type === 'GitHub Gist') {
       return (
@@ -48,18 +38,23 @@ const Embed = ({data: {primary}}) => {
   }
 }
 
-Embed.defaultProps = {
-  data: {
-    primary: {
-      type: 'Default',
-      embed_title: '',
-      embed_url: '',
-    },
-  },
+const iframeStyle = {
+  minWidth: '200px',
+  minHeight: '500px',
+  width: '100%',
+  height: '100%',
+  border: '0',
+  borderRadius: '4px',
+  overflow: 'auto',
+  margin: '1rem auto',
 }
 
-Embed.propTypes = {
-  data: PropTypes.object,
+/**
+ * return the ID part of the URL
+ * @param {*} url
+ */
+const getGistId = (url) => {
+  return url.split('/').slice(-1).join('')
 }
 
 export default Embed

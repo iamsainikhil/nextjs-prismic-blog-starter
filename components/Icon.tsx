@@ -1,4 +1,3 @@
-/** @jsxImportSource theme-ui */
 import {
   GrLinkedinOption,
   GrMedium,
@@ -8,10 +7,16 @@ import {
 } from 'react-icons/gr'
 import {FiCodepen} from 'react-icons/fi'
 import {IoIosGlobe, IoLogoWhatsapp} from 'react-icons/io'
-import PropTypes from 'prop-types'
+
 import {trackGAEvent} from '../utils/googleAnalytics'
 
-const Icon = ({name, url, style}) => {
+interface IconProps {
+  name: string,
+  url: string,
+  style: any,
+}
+
+const Icon = ({name, url, style}: IconProps) => {
   const renderIcon = () => {
     switch (name) {
       case 'Facebook':
@@ -120,12 +125,6 @@ const Icon = ({name, url, style}) => {
       {renderIcon()}
     </a>
   )
-}
-
-Icon.propTypes = {
-  name: PropTypes.string,
-  url: PropTypes.string,
-  style: PropTypes.object,
 }
 
 export default Icon

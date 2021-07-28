@@ -1,4 +1,3 @@
-/** @jsxImportSource theme-ui */
 import { Fragment, useState } from 'react'
 import { client } from '../../prismic-configuration'
 import { RichText } from 'prismic-reactjs'
@@ -17,7 +16,7 @@ import Snakke from 'react-snakke'
 import { Banner } from '../../slices'
 import formatDate from '../../utils/formatDate'
 import { useRouter } from 'next/router'
-import { IArticle, IAuthor } from '../../schemas'
+import { IArticle, IAuthor, IPage } from '../../schemas'
 import { Themed } from 'theme-ui'
 
 type ArticlePage = {
@@ -25,7 +24,7 @@ type ArticlePage = {
   tags: string[]
   article: IArticle
   author: IAuthor
-  articles: IArticle[]
+  articles: IPage<IArticle>[]
 }
 
 export default function Article({ uid, tags, article, author, articles }: ArticlePage) {
@@ -38,6 +37,7 @@ export default function Article({ uid, tags, article, author, articles }: Articl
   const toggleComments = () => {
     setShowComments(!showComments)
   }
+
   return (
     <Fragment>
       <Snakke
@@ -125,7 +125,7 @@ export default function Article({ uid, tags, article, author, articles }: Articl
             alignItems: 'center',
             mt: 2,
           }}>
-          {article.categories.map(({ category }, index) => {
+          {article.categories && article.categories.map(({ category }, index) => {
             return (
               category?.slug && (
                 <Chip name={category.slug} slug={category.slug} type='category' key={index} />
@@ -162,7 +162,7 @@ export default function Article({ uid, tags, article, author, articles }: Articl
             alignItems: 'center',
             my: 2,
           }}>
-          {tags.map((tag, index) => {
+          {tags && tags.map((tag, index) => {
             return <Chip name={tag} slug={tag} type='tag' key={index} />
           })}
         </div>
@@ -241,6 +241,7 @@ export async function getStaticProps({
   const { results: articles } = await client.query(
     Prismic.Predicates.at('document.type', 'article')
   )
+
   return {
     props: { uid, tags, article, author, articles, preview },
   }
@@ -251,7 +252,7 @@ export async function getStaticPaths() {
     Prismic.Predicates.at('document.type', 'article')
   )
 
-  const paths = results.map((article) => {
+  const paths = results && results.map((article) => {
     return {
       params: {
         uid: article.uid,
