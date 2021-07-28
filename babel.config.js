@@ -1,14 +1,14 @@
 module.exports = {
-  presets : [
+  presets: [
     [
-      'next/babel',
+      "next/babel",
       {
-        'preset-react' : {
-          importSource : 'theme-ui',
-          runtime : 'automatic',
-          throwIfNamespace : false,
+        "preset-react": {
+          importSource: "theme-ui",
+          runtime: "automatic",
+          throwIfNamespace: false,
         },
       },
     ],
   ],
-}
+};
