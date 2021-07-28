@@ -12,4 +12,3 @@ export interface IPage<T=any> {
   alternate_languages: string[]
   data: T
 }
-
