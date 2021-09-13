@@ -20,7 +20,9 @@
         "multi": "paragraph, strong, em, hyperlink",
         "label": "bio",
         "placeholder": "About the author",
-        "labels": ["codespan"]
+        "labels": [
+          "codespan"
+        ]
       }
     },
     "avatar": {
