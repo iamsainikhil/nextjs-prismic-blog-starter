@@ -1,28 +1,26 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import {jsx, Styled} from 'theme-ui'
+import React from 'react'
 
 const Caption = ({name, type}) => {
   return (
     <div style={{textAlign: 'center'}}>
-      <Styled.p
-        sx={{
+      <p
+        style={{
           fontFamily: 'light',
-          fontSize: [2, 3, 4],
+          fontSize: '1.5rem',
           textAlign: 'center',
-          mt: 0,
+          marginTop: 0,
         }}>
         {type === 'articles' ? (
-          <Styled.em>
+          <em>
             Dive into many interesting articles related to Web Development,
             Software Tools, Tips&nbsp;&&nbsp;Tricks,&nbsp;etc.
-          </Styled.em>
+          </em>
         ) : (
-          <Styled.em>
+          <em>
             The articles related to <strong>{name}</strong> {type}.
-          </Styled.em>
+          </em>
         )}
-      </Styled.p>
+      </p>
     </div>
   )
 }

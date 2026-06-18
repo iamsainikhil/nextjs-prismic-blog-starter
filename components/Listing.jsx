@@ -59,19 +59,16 @@ const Listing = ({articles}) => {
           <div style={{overflow: 'hidden'}}>
             <NextLink
               href={hrefResolver(article)}
-              as={linkResolver(article)}
-              passHref>
-              <a>
-                <Image
-                  src={article.data.article_image.url}
-                  alt={article.data.article_image.alt}
-                  title={article.data.article_image.alt}
-                  layout='responsive'
-                  width={article.data.article_image.dimensions.width}
-                  height={article.data.article_image.dimensions.height}
-                  className='article-image'
-                />
-              </a>
+              as={linkResolver(article)}>
+              <Image
+                src={article.data.article_image.url}
+                alt={article.data.article_image.alt}
+                title={article.data.article_image.alt}
+                layout='responsive'
+                width={article.data.article_image.dimensions.width}
+                height={article.data.article_image.dimensions.height}
+                className='article-image'
+              />
             </NextLink>
           </div>
           <div
@@ -97,27 +94,19 @@ const Listing = ({articles}) => {
               <NextLink
                 href={hrefResolver(article)}
                 as={linkResolver(article)}
-                passHref>
-                <a
-                  sx={{
-                    color: 'inherit',
-                    textDecoration: 'none',
-                    ':hover,:focus': {
-                      color: 'secondary',
-                      textDecoration: 'underline',
-                      cursor: 'pointer',
-                    },
-                  }}
-                  onClick={() =>
-                    trackGAEvent(
-                      'home',
-                      `clicked on ${article.uid} article title`,
-                      'text click'
-                    )
-                  }
-                  rel='noreferrer noopener'>
-                  {RichText.asText(article.data.title)}
-                </a>
+                style={{
+                  color: 'inherit',
+                  textDecoration: 'none',
+                }}
+                onClick={() =>
+                  trackGAEvent(
+                    'home',
+                    `clicked on ${article.uid} article title`,
+                    'text click'
+                  )
+                }
+                rel='noreferrer noopener'>
+                {RichText.asText(article.data.title)}
               </NextLink>
             </h2>
             <p
@@ -133,25 +122,22 @@ const Listing = ({articles}) => {
               <NextLink
                 href={hrefResolver(article)}
                 as={linkResolver(article)}
-                passHref>
-                <a
-                  sx={{variant: 'styles.a'}}
-                  aria-label={`Read the article on ${RichText.asText(
-                    article.data.title
-                  )}`}
-                  title={`Read the article on ${RichText.asText(
-                    article.data.title
-                  )}`}
-                  onClick={() =>
-                    trackGAEvent(
-                      'home',
-                      `clicked on ${article.uid} read full article`,
-                      'link click'
-                    )
-                  }
-                  rel='noreferrer noopener'>
-                  Read Full Article
-                </a>
+                aria-label={`Read the article on ${RichText.asText(
+                  article.data.title
+                )}`}
+                title={`Read the article on ${RichText.asText(
+                  article.data.title
+                )}`}
+                onClick={() =>
+                  trackGAEvent(
+                    'home',
+                    `clicked on ${article.uid} read full article`,
+                    'link click'
+                  )
+                }
+                rel='noreferrer noopener'
+                style={{color: 'inherit'}}>
+                Read Full Article
               </NextLink>
             </p>
             <div

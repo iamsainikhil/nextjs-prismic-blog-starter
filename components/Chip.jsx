@@ -1,6 +1,3 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import {jsx} from 'theme-ui'
 import PropTypes from 'prop-types'
 import {default as NextLink} from 'next/link'
 import {hrefResolver, linkResolver} from './../prismic-configuration'
@@ -13,32 +10,33 @@ import {trackGAEvent} from '../utils/googleAnalytics'
  */
 const Chip = ({name, slug, type, page = 'article'}) => {
   return (
-    <p sx={{m: 1}}>
+    <p style={{margin: '0.5rem'}}>
       <NextLink
         href={hrefResolver({type, uid: slug})}
         as={linkResolver({type, uid: slug})}
-        passHref>
-        <a
-          sx={{
-            textDecoration: 'none',
-            color: 'muted',
-            backgroundColor: 'accent',
-            fontSize: page === 'article' ? [0, 1, 2] : [0],
-            py: 1,
-            px: 3,
-            borderRadius: '2rem',
-            cursor: 'pointer',
-            '&:hover': {
-              color: 'accent',
-              backgroundColor: 'muted',
-            },
-          }}
-          onClick={() =>
-            trackGAEvent(page, `clicked on ${name} ${type}`, 'chip click')
-          }
-          rel='noreferrer noopener'>
-          {name}
-        </a>
+        style={{
+          textDecoration: 'none',
+          color: 'var(--color-muted)',
+          backgroundColor: 'var(--color-accent)',
+          fontSize: page === 'article' ? '0.875rem' : '0.75rem',
+          padding: '0.5rem 1.5rem',
+          borderRadius: '2rem',
+          cursor: 'pointer',
+          display: 'inline-block',
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.color = 'var(--color-accent)';
+          e.currentTarget.style.backgroundColor = 'var(--color-muted)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.color = 'var(--color-muted)';
+          e.currentTarget.style.backgroundColor = 'var(--color-accent)';
+        }}
+        onClick={() =>
+          trackGAEvent(page, `clicked on ${name} ${type}`, 'chip click')
+        }
+        rel='noreferrer noopener'>
+        {name}
       </NextLink>
     </p>
   )

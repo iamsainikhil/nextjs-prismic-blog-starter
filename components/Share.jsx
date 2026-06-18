@@ -1,6 +1,4 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import {jsx, Styled} from 'theme-ui'
+import React from 'react'
 import PropTypes from 'prop-types'
 import Icon from './Icon'
 import {FiShare2} from 'react-icons/fi'
@@ -35,17 +33,17 @@ const Share = ({articleURL, articleName, hideShareText = false}) => {
   ]
 
   return (
-    <div sx={{mt: hideShareText ? 2 : 4}}>
+    <div style={{marginTop: hideShareText ? '1rem' : '2rem'}}>
       {hideShareText ? null : (
-        <Styled.h3 sx={{textAlign: 'center'}}>
+        <h3 style={{textAlign: 'center'}}>
           Share
           <FiShare2
-            sx={{mx: 2, mb: -1}}
+            style={{margin: '0 1rem -0.25rem', fontSize: '1.25rem'}}
             title='Share this article on different platforms.'
           />
-        </Styled.h3>
+        </h3>
       )}
-      <div sx={flexbox}>
+      <div style={flexbox}>
         {sharePlatforms.map((platform, index) => {
           return (
             <Icon
@@ -53,9 +51,8 @@ const Share = ({articleURL, articleName, hideShareText = false}) => {
               url={platform.url}
               style={{
                 color: 'secondary',
-                fontSize: hideShareText ? [3] : [3, 4, 5],
-                mx: 3,
-                my: 1,
+                fontSize: hideShareText ? '2rem' : '2rem',
+                margin: '0 1.5rem 0.5rem',
               }}
               key={index}
             />

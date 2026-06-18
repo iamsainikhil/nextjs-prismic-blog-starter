@@ -1,9 +1,10 @@
 import {useState, Fragment} from 'react'
-import Highlight, {defaultProps} from 'prism-react-renderer'
-import light from 'prism-react-renderer/themes/github'
-import dark from 'prism-react-renderer/themes/vsDark'
+import {Highlight, themes} from 'prism-react-renderer'
 import {useThemeUI} from 'theme-ui'
 import styled from '@emotion/styled'
+
+const light = themes.github
+const dark = themes.vsDark
 
 /* copy to clipboard UI/UX */
 import {CopyToClipboard} from 'react-copy-to-clipboard'
@@ -63,7 +64,6 @@ const Code = ({data: {primary}}) => {
   return (
     <Fragment>
       <Highlight
-        {...defaultProps}
         theme={colorMode === 'light' ? light : dark}
         code={RichText.asText(primary.code)}
         language={primary.lang}>

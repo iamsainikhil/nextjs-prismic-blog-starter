@@ -1,6 +1,6 @@
 import {default as NextLink} from 'next/link'
 import Headroom from 'react-headroom'
-import {Styled, useThemeUI} from 'theme-ui'
+import {useThemeUI} from 'theme-ui'
 // import { GoSearch } from "react-icons/go"
 import {FiSun, FiMoon} from 'react-icons/fi'
 import {trackGAEvent} from '../utils/googleAnalytics'
@@ -13,22 +13,21 @@ const Header = () => {
       <header style={{background: `${theme.colors.muted}`}} className='header'>
         <div className='header-content'>
           <div>
-            <Styled.h1 style={{margin: '0'}}>
-              <NextLink href='/' passHref>
-                <Styled.a
-                  style={{
-                    textDecoration: 'none',
-                    fontFamily: 'Damion',
-                    letterSpacing: '0.15rem',
-                  }}
-                  onClick={() =>
-                    trackGAEvent('logo', `clicked on site logo`, 'link click')
-                  }
-                  rel='noreferrer noopener'>
-                  Blog
-                </Styled.a>
+            <h1 style={{margin: '0'}}>
+              <NextLink
+                href='/'
+                style={{
+                  textDecoration: 'none',
+                  fontFamily: 'Damion',
+                  letterSpacing: '0.15rem',
+                }}
+                onClick={() =>
+                  trackGAEvent('logo', `clicked on site logo`, 'link click')
+                }
+                rel='noreferrer noopener'>
+                Blog
               </NextLink>
-            </Styled.h1>
+            </h1>
           </div>
           <div className='header-links'>
             {/* <Styled.h2 style={{ margin: "0 1rem" }}>

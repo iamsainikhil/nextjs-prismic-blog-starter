@@ -1,7 +1,4 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import {jsx} from 'theme-ui'
-import {SiNextDotJs} from 'react-icons/si'
+import {SiNextdotjs} from 'react-icons/si'
 import {FaHeart} from 'react-icons/fa'
 import Icon from './Icon'
 import {trackGAEvent} from '../utils/googleAnalytics'
@@ -9,8 +6,8 @@ import {trackGAEvent} from '../utils/googleAnalytics'
 const Footer = () => {
   return (
     <footer
-      sx={{
-        bg: 'muted',
+      style={{
+        background: 'var(--color-muted)',
       }}>
       <div className='footer'>
         {/* <div className="links-row">
@@ -22,7 +19,7 @@ const Footer = () => {
               className="special-link"
               aria-label="GitHub"
               title="GitHub"
-              sx={{ color: 'primary' }}
+              style={{ color: 'primary' }}
               onClick={() =>
                 trackGAEvent(
                   'footer links',
@@ -42,7 +39,7 @@ const Footer = () => {
               className="special-link"
               aria-label="Privacy Policy"
               title="Privacy Policy"
-              sx={{ color: 'primary' }}
+              style={{ color: 'primary' }}
               onClick={() =>
                 trackGAEvent(
                   'footer links',
@@ -69,9 +66,9 @@ const Footer = () => {
             title='Love'
           />{' '}
           using{' '}
-          <SiNextDotJs
-            sx={{
-              color: 'text',
+          <SiNextdotjs
+            style={{
+              color: 'var(--color-text)',
               marginBottom: '-0.25rem',
             }}
             aria-label='NextJS'

@@ -1,7 +1,4 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
 import {Fragment, useState} from 'react'
-import {jsx, Styled} from 'theme-ui'
 import {client} from '../../prismic-configuration'
 import {RichText} from 'prismic-reactjs'
 import Prismic from 'prismic-javascript'
@@ -46,38 +43,37 @@ export default function Article({uid, tags, article, author, articles}) {
         description={RichText.asText(article.excerpt)}
         image={article.article_image.url}
         pathUrl={URL}>
-        <Styled.h1 sx={{textAlign: 'center', mb: 3}}>
+        <h1 style={{textAlign: 'center', marginBottom: '1rem'}}>
           {RichText.asText(article.title)}
-        </Styled.h1>
+        </h1>
         <div
-          sx={{
+          style={{
             fontWeight: 'bold',
-            my: 0,
-            pt: 0,
+            margin: 0,
+            paddingTop: 0,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             position: 'relative',
           }}>
-          <Styled.em
+          <em
             title={formatDate(article.created)}
             aria-label={formatDate(article.created)}>
             {formatDate(article.created)}
-          </Styled.em>
-          <Styled.em
-            sx={{mx: 4}}
+          </em>
+          <em
+            style={{margin: '0 2rem'}}
             title='Time to read the article'
             aria-label='Time to read the article'>
             <FiClock style={{marginBottom: '-0.15rem'}} />
             &nbsp;{article.read_time}&nbsp;min read
-          </Styled.em>
-          <p sx={{m: 0}}>
+          </em>
+          <p style={{margin: 0}}>
             <FiShare2
-              sx={{
-                fontSize: [3],
-                mx: 2,
-                mb: -1,
-                ':hover': {cursor: 'pointer'},
+              style={{
+                fontSize: '1.5rem',
+                margin: '0 1rem -0.25rem',
+                cursor: 'pointer',
               }}
               title={`Share ${RichText.asText(
                 article.title
@@ -88,14 +84,10 @@ export default function Article({uid, tags, article, author, articles}) {
             {/* Share */}
             {showShareIcons && (
               <div
-                sx={{
+                style={{
                   position: 'absolute',
-                  mt: '-2rem',
-                  ml: '2rem',
-                  '@media screen and (max-width: 40rem)': {
-                    mt: '-2rem',
-                    ml: '2.5rem',
-                  },
+                  marginTop: '-2rem',
+                  marginLeft: '2rem',
                 }}
                 onMouseLeave={toggleShareIcons}>
                 <Share
@@ -110,12 +102,12 @@ export default function Article({uid, tags, article, author, articles}) {
 
         {/* categories */}
         <div
-          sx={{
+          style={{
             display: 'flex',
             flexFlow: 'row wrap',
             justifyContent: 'center',
             alignItems: 'center',
-            mt: 2,
+            marginTop: '1rem',
           }}>
           {article.categories.map(({slug}, index) => {
             return (
@@ -126,24 +118,24 @@ export default function Article({uid, tags, article, author, articles}) {
           })}
         </div>
 
-        <Styled.p
-          sx={{
-            my: 4,
+        <p
+          style={{
+            margin: '2rem auto',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
           }}>
           {RichText.asText(article.excerpt)}
-        </Styled.p>
+        </p>
 
         <Banner image={article.article_image} />
 
         {/* slices */}
         <SliceMachine slices={article.body} />
 
-        <Styled.em sx={{color: 'gray'}}>
+        <em style={{color: 'gray'}}>
           This article was last updated on {formatDate(article.modified)}
-        </Styled.em>
+        </em>
 
         {/* tags */}
         <div
