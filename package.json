@@ -1,7 +1,7 @@
 {
   "name": "nextjs-prismic-blog-starter",
   "description": "Blog starter template built with nextjs and Prismic.",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "author": "Sai Nikhil <contact@iamsainikhil.com>",
   "engines": {
     "node": ">=20.9.0"
