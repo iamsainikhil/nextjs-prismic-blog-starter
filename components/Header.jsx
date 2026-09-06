@@ -1,3 +1,4 @@
+import {useEffect, useState} from 'react'
 import {default as NextLink} from 'next/link'
 import Headroom from 'react-headroom'
 import {useThemeUI} from 'theme-ui'
@@ -7,6 +8,11 @@ import {trackGAEvent} from '../utils/googleAnalytics'
 
 const Header = () => {
   const {theme, colorMode, setColorMode} = useThemeUI()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <Headroom disableInlineStyles upTolerance={10} downTolerance={10}>
@@ -46,7 +52,7 @@ const Header = () => {
               />
             </p> */}
             <p>
-              {colorMode === 'light' ? (
+              {mounted && colorMode !== 'dark' ? (
                 <span
                   title='Switch to Dark Mode'
                   aria-label='Switch to Dark Mode'>
@@ -62,7 +68,7 @@ const Header = () => {
                     }}
                   />
                 </span>
-              ) : (
+              ) : mounted ? (
                 <span
                   title='Switch to Light Mode'
                   aria-label='Switch to Light Mode'>
@@ -78,6 +84,8 @@ const Header = () => {
                     }}
                   />
                 </span>
+              ) : (
+                <span />
               )}
             </p>
           </div>
