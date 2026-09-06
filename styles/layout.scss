@@ -1,5 +1,5 @@
-@import 'fonts';
-@import 'partials';
+@use 'fonts' as *;
+@use 'partials' as *;
 
 html {
   font: 112.5%/1.45em 'Rubik', sans-serif;

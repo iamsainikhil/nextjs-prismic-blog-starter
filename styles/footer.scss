@@ -1,4 +1,4 @@
-@import 'partials';
+@use 'partials' as *;
 
 .links-row {
   @extend %flex;
